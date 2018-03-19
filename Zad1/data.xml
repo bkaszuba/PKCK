@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="data.css" ?>
+<zadanie xmlns:html="http://www.w3.org/TR/REC-html40" >
+<autorzy>
+    <autor>
+        <imię>Michał</imię>
+        <nazwisko>Madej</nazwisko>
+        <nr_indeksu>203933</nr_indeksu>
+    </autor>
+    <autor>
+        <imię>Bartłomiej</imię>
+        <nazwisko>Kaszuba</nazwisko>
+        <nr_indeksu>203900</nr_indeksu>
+    </autor>
+</autorzy>
+<samochody>
+    <samochód id="NM1">
+        <marka>Nissan</marka>
+        <model>Micra</model>
+        <silnik>1.4</silnik>
+        <dataProdukcji>2002</dataProdukcji>
+        <cena waluta="PLN">7000</cena>
+        <przebieg jednostka="km">98000</przebieg>
+    </samochód>
+    <samochód id="SI1">
+        <marka>Seat</marka>
+        <model>Ibiza</model>
+        <silnik>1.4</silnik>
+        <dataProdukcji>1997</dataProdukcji>
+        <cena waluta="PLN">3499</cena>
+        <przebieg jednostka="km">182199</przebieg>
+    </samochód>
+    <samochód id="RM1">
+        <marka>Renault</marka>
+        <model>Megane</model>
+        <silnik>1.8</silnik>
+        <dataProdukcji>2008</dataProdukcji>
+        <cena waluta="PLN">14999</cena>
+        <przebieg jednostka="km">84000</przebieg>
+    </samochód>
+    <samochód id="HC1">
+        <marka>Honda</marka>
+        <model>Civic</model>
+        <silnik>2.0</silnik>
+        <dataProdukcji>2000</dataProdukcji>
+        <cena waluta="PLN">6599</cena>
+        <przebieg jednostka="km">134123</przebieg>
+    </samochód>
+    <samochód id="RL1">
+        <marka>Renault</marka>
+        <model>Laguna</model>
+        <silnik>2.0</silnik>
+        <dataProdukcji>2012</dataProdukcji>
+        <cena waluta="PLN">32199</cena>
+        <przebieg jednostka="km">34159</przebieg>
+    </samochód>
+    <samochód id="BM1">
+        <marka>BMW</marka>
+        <model>M3</model>
+        <silnik>2.5</silnik>
+        <dataProdukcji>2015</dataProdukcji>
+        <cena waluta="PLN">99000</cena>
+        <przebieg jednostka="km">32100</przebieg>
+    </samochód>
+    <samochód id="AA1">
+        <marka>Audi</marka>
+        <model>A3</model>
+        <silnik>1.8</silnik>
+        <dataProdukcji>2012</dataProdukcji>
+        <cena waluta="PLN">32000</cena>
+        <przebieg jednostka="km">12100</przebieg>
+    </samochód>
+    <samochód id="AA2">
+        <marka>Audi</marka>
+        <model>A5</model>
+        <silnik>2.0</silnik>
+        <dataProdukcji>2014</dataProdukcji>
+        <cena waluta="PLN">52000</cena>
+        <przebieg jednostka="km">43100</przebieg>
+    </samochód>
+    <samochód id="AA3">
+        <marka>Audi</marka>
+        <model>A8</model>
+        <silnik>3.0</silnik>
+        <dataProdukcji>2015</dataProdukcji>
+        <cena waluta="PLN">83000</cena>
+        <przebieg jednostka="km">12099</przebieg>
+    </samochód>
+    <samochód id="AR1">
+        <marka>Audi</marka>
+        <model>R8</model>
+        <silnik>3.5</silnik>
+        <dataProdukcji>2017</dataProdukcji>
+        <cena waluta="PLN">123000</cena>
+        <przebieg jednostka="km">1299</przebieg>
+    </samochód>
+</samochody>
+</zadanie>

@@ -1,0 +1,141 @@
+
+zadanie
+{
+
+background: rgba(226,226,226,1);
+background: -moz-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,226,226,1)), color-stop(50%, rgba(219,219,219,0.86)), color-stop(51%, rgba(209,209,209,0.86)), color-stop(100%, rgba(254,254,254,0.72)));
+background: -webkit-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
+background: -o-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
+background: -ms-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
+background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
+
+}
+
+autorzy
+{
+display:block;
+float:left;
+
+font-size:24px;
+margin:0px 0px 20px 0px;
+background-color:#000000;
+color:#FFFFFF;
+background-position:right;
+background-repeat:repeat-y;
+padding:0px 0px;
+}
+
+autor
+{
+display:table-row;
+font-size:22px;
+}
+
+imie,nazwisko,nr_indeksu
+{
+display:table-cell;
+padding:0px 5px;
+}
+
+imie
+{
+text-align:right;
+padding:0px 0px 0px 40px;
+}
+
+samochód
+{
+    display: block;
+    position: relative;
+    top: 100px;
+    left: 50px;
+    padding: 30px;
+    margin: 20px;
+    width: 400px;
+    border: dotted 1px;
+    font-size: 18px;
+}
+marka::before
+{
+    color: black;
+    font-weight: normal;
+    content: 'Marka: ';
+}
+marka
+{
+    display: block;
+    color: black;
+    font-weight: bold;
+    content: 'Marka: ';
+}
+
+model::before
+{
+    font-weight: normal;
+    content: 'Model: ';
+}
+
+model
+{
+    display: block;
+    font-weight: bold
+}
+
+silnik::before
+{
+    font-weight: normal;
+    content: 'Pojemność silnika: ';
+}
+
+silnik
+{
+    display: block;
+    font-weight: bold;
+}
+
+dataProdukcji::before
+{
+    font-weight: normal;
+    content: 'Data produkcji: ';
+}
+
+dataProdukcji
+{
+    display: block;
+    font-weight: bold;
+}
+
+cena::before
+{
+    font-weight: normal;
+    content: 'Cena: ';
+}
+
+cena
+{
+    display: block;
+    font-weight: bold;
+}
+
+cena::after
+{
+    content: attr(waluta);
+}
+
+przebieg::before
+{
+    font-weight: normal;
+    content: 'Przebieg: ';
+}
+przebieg
+{
+    display: block;
+    font-weight: bold;
+}
+
+przebieg::after
+{
+    content: attr(jednostka);
+}
