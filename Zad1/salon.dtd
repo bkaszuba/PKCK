@@ -1,0 +1,23 @@
+<!ELEMENT salon (opis,samochody)>
+
+<!ELEMENT opis (temat, autorzy)>
+<!ELEMENT temat (#PCDATA)>
+<!ELEMENT autorzy (autor+)>
+
+<!ELEMENT autor (imię, nazwisko, nr_indeksu)>
+<!ELEMENT imię (#PCDATA)>
+<!ELEMENT nazwisko (#PCDATA)>
+<!ELEMENT nr_indeksu (#PCDATA)>
+
+<!ELEMENT samochody (samochód+)>
+
+<!ELEMENT samochód (marka, model, silnik, dataProdukcji, cena, przebieg)>
+<!ATTLIST samochód id ID #REQUIRED>
+<!ELEMENT marka (#PCDATA)>
+<!ELEMENT model (#PCDATA)>
+<!ELEMENT silnik (#PCDATA)>
+<!ELEMENT dataProdukcji (#PCDATA)>
+<!ELEMENT cena (#PCDATA)>
+<!ATTLIST cena waluta (PLN) #REQUIRED>
+<!ELEMENT przebieg (#PCDATA)>
+<!ATTLIST przebieg jednostka (km) #REQUIRED>
