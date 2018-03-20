@@ -1,141 +1,128 @@
-
-zadanie
-{
-
-background: rgba(226,226,226,1);
-background: -moz-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,226,226,1)), color-stop(50%, rgba(219,219,219,0.86)), color-stop(51%, rgba(209,209,209,0.86)), color-stop(100%, rgba(254,254,254,0.72)));
-background: -webkit-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
-background: -o-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
-background: -ms-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
-background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(219,219,219,0.86) 50%, rgba(209,209,209,0.86) 51%, rgba(254,254,254,0.72) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
-
+salon {
+    background: url(https://cdn.pixabay.com/photo/2016/12/09/08/06/texture-1893783_1280.jpg);
 }
 
-autorzy
-{
-display:block;
-float:left;
-
-font-size:24px;
-margin:0px 0px 20px 0px;
-background-color:#000000;
-color:#FFFFFF;
-background-position:right;
-background-repeat:repeat-y;
-padding:0px 0px;
-}
-
-autor
-{
-display:table-row;
-font-size:22px;
-}
-
-imie,nazwisko,nr_indeksu
-{
-display:table-cell;
-padding:0px 5px;
-}
-
-imie
-{
-text-align:right;
-padding:0px 0px 0px 40px;
-}
-
-samochód
-{
+temat {
     display: block;
+    text-align: center;
+    font-size: 46px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.68);
+    color: #fffef6;
+    font-family: "Comic Sans MS";
+}
+
+autorzy {
+    display: block;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.58);
+    color: #FFFFFF;
+}
+
+autor {
+    display: block;
+    text-align: center;
+}
+
+imie,
+nazwisko,
+nr_indeksu {
+    padding: 0px 5px;
+}
+
+samochód {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #cccbc4;
+    display: inline-block;
     position: relative;
-    top: 100px;
-    left: 50px;
     padding: 30px;
     margin: 20px;
-    width: 400px;
-    border: dotted 1px;
+    width: 25%;
+    border: solid 2px;
     font-size: 18px;
 }
-marka::before
-{
-    color: black;
+
+samochód:hover {
+    background-color: rgba(0, 0, 0, 0.80);
+
+}
+
+marka::before {
     font-weight: normal;
     content: 'Marka: ';
 }
-marka
-{
+
+marka {
     display: block;
-    color: black;
     font-weight: bold;
     content: 'Marka: ';
 }
 
-model::before
-{
+model::before {
     font-weight: normal;
     content: 'Model: ';
 }
 
-model
-{
+model {
     display: block;
     font-weight: bold
 }
 
-silnik::before
-{
+silnik::before {
     font-weight: normal;
     content: 'Pojemność silnika: ';
 }
 
-silnik
-{
+silnik {
     display: block;
     font-weight: bold;
 }
 
-dataProdukcji::before
-{
+dataProdukcji::before {
     font-weight: normal;
     content: 'Data produkcji: ';
 }
 
-dataProdukcji
-{
+dataProdukcji {
     display: block;
     font-weight: bold;
 }
 
-cena::before
-{
+cena::before {
     font-weight: normal;
     content: 'Cena: ';
 }
 
-cena
-{
+cena {
     display: block;
     font-weight: bold;
 }
 
-cena::after
-{
+cena::after {
     content: attr(waluta);
 }
 
-przebieg::before
-{
+przebieg::before {
     font-weight: normal;
     content: 'Przebieg: ';
 }
-przebieg
-{
+
+przebieg {
     display: block;
     font-weight: bold;
 }
 
-przebieg::after
-{
+przebieg::after {
     content: attr(jednostka);
+}
+
+@media screen and (max-width: 768px) {
+
+    samochód {
+        align-items: center;
+        width: 88%;
+        margin: 0px;
+    }
+
 }
