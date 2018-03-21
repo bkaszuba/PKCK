@@ -1,5 +1,5 @@
 salon {
-    background: url(https://cdn.pixabay.com/photo/2016/12/09/08/06/texture-1893783_1280.jpg);
+    background: url("img/background.jpg");
 }
 
 temat {
@@ -48,15 +48,8 @@ samochód:hover {
 
 }
 
-marka::before {
-    font-weight: normal;
-    content: 'Marka: ';
-}
-
-marka {
-    display: block;
-    font-weight: bold;
-    content: 'Marka: ';
+samochód::before {
+    content: "Marka: " attr(idref);
 }
 
 model::before {

@@ -20,85 +20,161 @@
         </autorzy>
     </opis>
     <samochody>
-        <samochód id="NM1">
-            <marka>Nissan</marka>
+        <samochód id="NM1" idref="Nissan">
             <model>Micra</model>
             <silnik>1.4</silnik>
             <dataProdukcji>2002</dataProdukcji>
             <cena waluta="PLN">7000</cena>
             <przebieg jednostka="km">98000</przebieg>
         </samochód>
-        <samochód id="SI1">
-            <marka>Seat</marka>
+        <samochód id="VP1" idref="Volkswagen">
+            <model>Passat</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2004</dataProdukcji>
+            <cena waluta="PLN">17399</cena>
+            <przebieg jednostka="km">129929</przebieg>
+        </samochód>
+        <samochód id="SI1" idref="Seat">
             <model>Ibiza</model>
             <silnik>1.4</silnik>
             <dataProdukcji>1997</dataProdukcji>
             <cena waluta="PLN">3499</cena>
             <przebieg jednostka="km">182199</przebieg>
         </samochód>
-        <samochód id="RM1">
-            <marka>Renault</marka>
+        <samochód id="RM1" idref="Renault">
             <model>Megane</model>
             <silnik>1.8</silnik>
             <dataProdukcji>2008</dataProdukcji>
             <cena waluta="PLN">14999</cena>
             <przebieg jednostka="km">84000</przebieg>
         </samochód>
-        <samochód id="HC1">
-            <marka>Honda</marka>
+        <samochód id="HC1" idref="Honda">
             <model>Civic</model>
             <silnik>2.0</silnik>
             <dataProdukcji>2000</dataProdukcji>
             <cena waluta="PLN">6599</cena>
             <przebieg jednostka="km">134123</przebieg>
         </samochód>
-        <samochód id="RL1">
-            <marka>Renault</marka>
+        <samochód id="RL1" idref="Renault">
             <model>Laguna</model>
             <silnik>2.0</silnik>
             <dataProdukcji>2012</dataProdukcji>
             <cena waluta="PLN">32199</cena>
             <przebieg jednostka="km">34159</przebieg>
         </samochód>
-        <samochód id="BM1">
-            <marka>BMW</marka>
+        <samochód id="BM1" idref="BMW">
             <model>M3</model>
             <silnik>2.5</silnik>
             <dataProdukcji>2015</dataProdukcji>
             <cena waluta="PLN">99000</cena>
             <przebieg jednostka="km">32100</przebieg>
         </samochód>
-        <samochód id="AA1">
-            <marka>Audi</marka>
+        <samochód id="BX1" idref="BMW">
+            <model>X5</model>
+            <silnik>3.0</silnik>
+            <dataProdukcji>2016</dataProdukcji>
+            <cena waluta="PLN">129999</cena>
+            <przebieg jednostka="km">20000</przebieg>
+        </samochód>
+        <samochód id="BX2" idref="BMW">
+            <model>X7</model>
+            <silnik>3.5</silnik>
+            <dataProdukcji>2014</dataProdukcji>
+            <cena waluta="PLN">78999</cena>
+            <przebieg jednostka="km">78145</przebieg>
+        </samochód>
+        <samochód id="AA1" idref="Audi">
             <model>A3</model>
             <silnik>1.8</silnik>
             <dataProdukcji>2012</dataProdukcji>
             <cena waluta="PLN">32000</cena>
             <przebieg jednostka="km">12100</przebieg>
         </samochód>
-        <samochód id="AA2">
-            <marka>Audi</marka>
+        <samochód id="VG1" idref="Volkswagen">
+            <model>Golf</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2007</dataProdukcji>
+            <cena waluta="PLN">21999</cena>
+            <przebieg jednostka="km">89929</przebieg>
+        </samochód>
+        <samochód id="AA2" idref="Audi">
             <model>A5</model>
             <silnik>2.0</silnik>
             <dataProdukcji>2014</dataProdukcji>
             <cena waluta="PLN">52000</cena>
             <przebieg jednostka="km">43100</przebieg>
         </samochód>
-        <samochód id="AA3">
-            <marka>Audi</marka>
+        <samochód id="AA3" idref="Audi">
             <model>A8</model>
             <silnik>3.0</silnik>
             <dataProdukcji>2015</dataProdukcji>
             <cena waluta="PLN">83000</cena>
             <przebieg jednostka="km">12099</przebieg>
         </samochód>
-        <samochód id="AR1">
-            <marka>Audi</marka>
+        <samochód id="AR1" idref="Audi">
             <model>R8</model>
             <silnik>3.5</silnik>
             <dataProdukcji>2017</dataProdukcji>
             <cena waluta="PLN">123000</cena>
             <przebieg jednostka="km">1299</przebieg>
         </samochód>
+        <samochód id="RM2" idref="Renault">
+            <model>Megane</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2010</dataProdukcji>
+            <cena waluta="PLN">32999</cena>
+            <przebieg jednostka="km">84159</przebieg>
+        </samochód>
+        <samochód id="VU1" idref="Volkswagen">
+            <model>Up</model>
+            <silnik>1.0</silnik>
+            <dataProdukcji>2010</dataProdukcji>
+            <cena waluta="PLN">23099</cena>
+            <przebieg jednostka="km">69329</przebieg>
+        </samochód>
+        <samochód id="SL1" idref="Seat">
+            <model>Leon</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2010</dataProdukcji>
+            <cena waluta="PLN">64000</cena>
+            <przebieg jednostka="km">52100</przebieg>
+        </samochód>
+        <samochód id="NJ1" idref="Nissan">
+            <model>Juke</model>
+            <silnik>2.5</silnik>
+            <dataProdukcji>2017</dataProdukcji>
+            <cena waluta="PLN">132999</cena>
+            <przebieg jednostka="km">1300</przebieg>
+        </samochód>
+        <samochód id="HJ1" idref="Honda">
+            <model>Jazz</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2008</dataProdukcji>
+            <cena waluta="PLN">35199</cena>
+            <przebieg jednostka="km">89200</przebieg>
+        </samochód>
+        <samochód id="BE1" idref="BMW">
+            <model>E46</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>1998</dataProdukcji>
+            <cena waluta="PLN">12999</cena>
+            <przebieg jednostka="km">213929</przebieg>
+        </samochód>
+        <samochód id="NQ1" idref="Nissan">
+            <model>Qashqai</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2017</dataProdukcji>
+            <cena waluta="PLN">110099</cena>
+            <przebieg jednostka="km">15650</przebieg>
+        </samochód>
     </samochody>
+    <marki>
+        <marka id="Nissan"></marka>
+        <marka id="Audi"></marka>
+        <marka id="BMW"></marka>
+        <marka id="Renault"></marka>
+        <marka id="Seat"></marka>
+        <marka id="Honda"></marka>
+        <marka id="Volkswagen"></marka>
+    </marki>
 </salon>

@@ -1,4 +1,4 @@
-<!ELEMENT salon (opis,samochody)>
+<!ELEMENT salon (opis,samochody, marki)>
 
 <!ELEMENT opis (temat, autorzy)>
 <!ELEMENT temat (#PCDATA)>
@@ -11,9 +11,12 @@
 
 <!ELEMENT samochody (samochód+)>
 
-<!ELEMENT samochód (marka, model, silnik, dataProdukcji, cena, przebieg)>
-<!ATTLIST samochód id ID #REQUIRED>
-<!ELEMENT marka (#PCDATA)>
+<!ELEMENT samochód (model, silnik, dataProdukcji, cena, przebieg)>
+<!ATTLIST samochód 
+    id ID #IMPLIED
+    idref IDREF #IMPLIED
+  >
+<!ATTLIST samochód idref (Nissan|Audi|BMW|Renault|Seat|Honda|Volkswagen) "Nissan">
 <!ELEMENT model (#PCDATA)>
 <!ELEMENT silnik (#PCDATA)>
 <!ELEMENT dataProdukcji (#PCDATA)>
@@ -21,3 +24,10 @@
 <!ATTLIST cena waluta (PLN) #REQUIRED>
 <!ELEMENT przebieg (#PCDATA)>
 <!ATTLIST przebieg jednostka (km) #REQUIRED>
+
+<!ELEMENT marki (marka+)>
+
+<!ELEMENT marka (#PCDATA)>
+<!ATTLIST marka
+    id ID #IMPLIED
+  >
