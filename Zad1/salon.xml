@@ -19,6 +19,15 @@
             </autor>
         </autorzy>
     </opis>
+    <marki>
+        <marka id="Nissan">Nissan</marka>
+        <marka id="Audi">Audi</marka>
+        <marka id="BMW">BMW</marka>
+        <marka id="Renault">Renault</marka>
+        <marka id="Seat">Seat</marka>
+        <marka id="Honda">Honda</marka>
+        <marka id="Volkswagen">Volkswagen</marka>
+    </marki>
     <samochody>
         <samochód id="NM1" idref="Nissan">
             <model>Micra</model>
@@ -168,13 +177,4 @@
             <przebieg jednostka="km">15650</przebieg>
         </samochód>
     </samochody>
-    <marki>
-        <marka id="Nissan"></marka>
-        <marka id="Audi"></marka>
-        <marka id="BMW"></marka>
-        <marka id="Renault"></marka>
-        <marka id="Seat"></marka>
-        <marka id="Honda"></marka>
-        <marka id="Volkswagen"></marka>
-    </marki>
 </salon>
