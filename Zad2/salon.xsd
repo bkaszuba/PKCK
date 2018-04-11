@@ -1,0 +1,156 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/" xmlns:typy="http://example.com/"> 
+    <xs:element name="salon">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="opis">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="temat"/>
+                            <xs:element name="autorzy">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="autor" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="typy:d³ugaNazwa" name="imiê"/>
+                                                    <xs:element type="typy:d³ugaNazwa" name="nazwisko"/>
+                                                    <xs:element type="typy:index" name="nr_indeksu"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="marki">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="marka" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="typy:marki" name="id" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="samochody">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="samochód" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="typy:krótkaNazwa" name="model"/>
+                                        <xs:element type="typy:silnik" name="silnik"/>
+                                        <xs:element type="typy:dataProd" name="dataProdukcji"/>
+                                        <xs:element name="cena">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="typy:walutaLiczba">
+                                                        <xs:attribute type="typy:walutaTekst" name="waluta" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="przebieg">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:int">
+                                                        <xs:attribute type="typy:jednostka" name="jednostka" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:date" name="dataOstatniegoW³aœciciela"/>
+                                        <xs:element type="typy:d³ugiOpis" name="opis"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="typy:krótkaNazwa" name="id" use="optional"/>
+                                    <xs:attribute type="typy:marki" name="idref" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+  
+    <xs:simpleType name="d³ugaNazwa">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="krótkaNazwa">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="16"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="d³ugiOpis">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="index">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="200000"/>
+            <xs:maxInclusive value="210000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="walutaTekst">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PLN"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="walutaLiczba">
+        <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="jednostkaDrogi">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="km"/>
+            <xs:enumeration value="Km"/>
+            <xs:enumeration value="KM"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="marki">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Nissan"/>
+            <xs:enumeration value="Audi"/>
+            <xs:enumeration value="BMW"/>
+            <xs:enumeration value="Renault"/>
+            <xs:enumeration value="Seat"/>
+            <xs:enumeration value="Honda"/>
+            <xs:enumeration value="Volkswagen"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="silnik">
+        <xs:restriction base="xs:float">
+            <xs:pattern value="[1-4][.][0-9]">
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="dataProd">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1990"/>
+            <xs:maxInclusive value="2018"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
