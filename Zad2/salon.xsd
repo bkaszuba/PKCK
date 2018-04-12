@@ -1,4 +1,5 @@
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com" xmlns:własny="http://example.com">
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/własny" xmlns:własny="http://www.example.org/własny" elementFormDefault="qualified" >
 	<xs:element name="salon">
 		<xs:complexType>
 			<xs:sequence>
@@ -69,8 +70,8 @@
 												</xs:simpleContent>
 											</xs:complexType>
 										</xs:element>
-										<xs:element type="xs:date" name="dataOstatniegoWłaściciela"/>
-										<xs:element name="daneOstatniegoWłaściciela">
+										<xs:element type="xs:date" name="dataOstatniegoWłaściciela" maxOccurs="1" minOccurs="0"/>
+										<xs:element name="daneOstatniegoWłaściciela" maxOccurs="1" minOccurs="0">
 											<xs:complexType>
 												<xs:attributeGroup ref="własny:ostatniWłaścicielAtrybuty"/>
 											</xs:complexType>
@@ -92,7 +93,7 @@
 	<xs:attributeGroup name="ostatniWłaścicielAtrybuty">
 		<xs:attribute name="imie" type="własny:długaNazwa" use="required"/>
 		<xs:attribute name="nazwisko" type="własny:długaNazwa" use="required"/>
-		<xs:attribute name="nr_telefonu" type="własny:nr_telefonu" use="required"/>
+		<xs:attribute name="nrTelefonu" type="własny:nr_telefonu" use="required"/>
 	</xs:attributeGroup>
 
 	<xs:group name="autor">
