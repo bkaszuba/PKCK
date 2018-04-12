@@ -1,191 +1,191 @@
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://example.com" xmlns:własny="http://example.com">
-<xs:element name="salon">
-<xs:complexType>
-    <xs:sequence>
-	<!-- Opis -->
-        <xs:element name="opis">
-            <xs:complexType>
-                <xs:sequence>
-                    <xs:element type="xs:string" name="temat"/>
-                    <xs:element name="autorzy">
-                        <xs:complexType>
-                            <xs:sequence>
-                                <xs:element name="autor" maxOccurs="unbounded" minOccurs="1">
-                                    <xs:complexType>
-                                        <xs:group ref="własny:autor"/>
-                                    </xs:complexType>
-                                </xs:element>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:complexType>
-        </xs:element>
-		<!-- Marki -->
-        <xs:element name="marki">
-            <xs:complexType>
-                <xs:sequence>
-					<!-- Marka -->
-                    <xs:element name="marka" maxOccurs="unbounded" minOccurs="0">
-                        <xs:complexType>
-                            <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                                    <xs:attribute type="własny:marki" name="id" use="required"/>
-                                </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:complexType>
-        </xs:element>
-		<!-- Samochody -->
-        <xs:element name="samochody">
-            <xs:complexType>
-                <xs:sequence>
-					<!-- Samochód -->
-                    <xs:element name="samochód" maxOccurs="unbounded" minOccurs="0">
-                        <xs:complexType>
-                            <xs:sequence>
-                                <xs:element type="własny:krótkaNazwa" name="model"/>
-                                <xs:element type="własny:silnik" name="silnik"/>
-                                <xs:element type="własny:dataProd" name="dataProdukcji"/>
-                                <xs:element name="cena">
-                                    <xs:complexType>
-                                        <xs:simpleContent>
-                                            <xs:extension base="własny:walutaLiczba">
-                                                <xs:attribute type="własny:walutaTekst" name="waluta" use="optional"/>
-                                            </xs:extension>
-                                        </xs:simpleContent>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element name="przebieg">
-                                    <xs:complexType>
-                                        <xs:simpleContent>
-                                            <xs:extension base="xs:int">
-                                                <xs:attribute type="własny:jednostkaDrogi" name="jednostka"
-                                                              use="optional"/>
-                                            </xs:extension>
-                                        </xs:simpleContent>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element type="xs:date" name="dataOstatniegoWłaściciela"/>
-                                <xs:element name="daneOstatniegoWłaściciela">
-                                    <xs:complexType>
-                                        <xs:attributeGroup ref="własny:ostatniWłaścicielAtrybuty"/>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element type="własny:długiOpis" name="opis"/>
-                                <xs:element type="własny:taknie" name="jestNowy"/>
-                            </xs:sequence>
-                            <xs:attribute type="własny:krótkaNazwa" name="id" use="optional"/>
-                            <xs:attribute type="własny:marki" name="idref" use="required"/>
-                        </xs:complexType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:complexType>
-        </xs:element>
-    </xs:sequence>
-</xs:complexType>
-</xs:element>
-<!-- Własne typy -->
-<xs:attributeGroup name="ostatniWłaścicielAtrybuty">
-<xs:attribute name="imie" type="własny:długaNazwa" use="required"/>
-<xs:attribute name="nazwisko" type="własny:długaNazwa" use="required"/>
-<xs:attribute name="nr_telefonu" type="własny:nr_telefonu" use="required"/>
-</xs:attributeGroup>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com" xmlns:własny="http://example.com">
+	<xs:element name="salon">
+		<xs:complexType>
+			<xs:sequence>
+			<!-- Opis -->
+				<xs:element name="opis">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="temat"/>
+							<!-- Autorzy -->
+							<xs:element name="autorzy">
+								<xs:complexType>
+									<xs:sequence>
+										<!-- Autor -->
+										<xs:element name="autor" maxOccurs="unbounded" minOccurs="1">
+											<xs:complexType>
+												<xs:group ref="własny:autor"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<!-- Marki -->
+				<xs:element name="marki">
+					<xs:complexType>
+						<xs:sequence>
+							<!-- Marka -->
+							<xs:element name="marka" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="własny:marki" name="id" use="required"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<!-- Samochody -->
+				<xs:element name="samochody">
+					<xs:complexType>
+						<xs:sequence>
+							<!-- Samochód -->
+							<xs:element name="samochód" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="własny:krótkaNazwa" name="model"/>
+										<xs:element type="własny:silnik" name="silnik"/>
+										<xs:element type="własny:dataProd" name="dataProdukcji"/>
+										<xs:element name="cena">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="własny:walutaLiczba">
+														<xs:attribute type="własny:walutaTekst" name="waluta" use="optional"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="przebieg">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:int">
+														<xs:attribute type="własny:jednostkaDrogi" name="jednostka" use="optional"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element type="xs:date" name="dataOstatniegoWłaściciela"/>
+										<xs:element name="daneOstatniegoWłaściciela">
+											<xs:complexType>
+												<xs:attributeGroup ref="własny:ostatniWłaścicielAtrybuty"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element type="własny:długiOpis" name="opis"/>
+										<xs:element type="własny:taknie" name="jestNowy"/>
+									</xs:sequence>
+									<xs:attribute type="własny:krótkaNazwa" name="id" use="optional"/>
+									<xs:attribute type="własny:marki" name="idref" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Własne typy -->
+	<xs:attributeGroup name="ostatniWłaścicielAtrybuty">
+		<xs:attribute name="imie" type="własny:długaNazwa" use="required"/>
+		<xs:attribute name="nazwisko" type="własny:długaNazwa" use="required"/>
+		<xs:attribute name="nr_telefonu" type="własny:nr_telefonu" use="required"/>
+	</xs:attributeGroup>
 
-<xs:group name="autor">
-    <xs:sequence>
-      <xs:element type="własny:długaNazwa" name="imię"/>
-      <xs:element type="własny:długaNazwa" name="nazwisko"/>
-      <xs:element type="własny:index" name="nr_indeksu"/>
-    </xs:sequence>
-</xs:group>
+	<xs:group name="autor">
+		<xs:sequence>
+		  <xs:element type="własny:długaNazwa" name="imię"/>
+		  <xs:element type="własny:długaNazwa" name="nazwisko"/>
+		  <xs:element type="własny:index" name="nr_indeksu"/>
+		</xs:sequence>
+	</xs:group>
 
-<xs:simpleType name="długaNazwa">
-<xs:restriction base="xs:string">
-    <xs:minLength value="1"/>
-    <xs:maxLength value="32"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="długaNazwa">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="krótkaNazwa">
-<xs:restriction base="xs:string">
-    <xs:minLength value="1"/>
-    <xs:maxLength value="16"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="krótkaNazwa">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="długiOpis">
-<xs:restriction base="xs:string">
-    <xs:minLength value="1"/>
-    <xs:maxLength value="256"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="długiOpis">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="nr_telefonu">
-<xs:restriction base="xs:string">
-    <xs:pattern value="[5-8]{1}[0-9]{8}"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="nr_telefonu">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[5-8]{1}[0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="index">
-<xs:restriction base="xs:int">
-    <xs:minInclusive value="200000"/>
-    <xs:maxInclusive value="210000"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="index">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="200000"/>
+			<xs:maxInclusive value="210000"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="walutaTekst">
-<xs:restriction base="xs:string">
-    <xs:enumeration value="PLN"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="walutaTekst">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PLN"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="walutaLiczba">
-<xs:restriction base="xs:decimal">
-    <xs:fractionDigits value="2"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="walutaLiczba">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="jednostkaDrogi">
-<xs:restriction base="xs:string">
-    <xs:enumeration value="km"/>
-    <xs:enumeration value="KM"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="jednostkaDrogi">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="km"/>
+			<xs:enumeration value="KM"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="marki">
-<xs:restriction base="xs:string">
-    <xs:enumeration value="Nissan"/>
-    <xs:enumeration value="Audi"/>
-    <xs:enumeration value="BMW"/>
-    <xs:enumeration value="Renault"/>
-    <xs:enumeration value="Seat"/>
-    <xs:enumeration value="Honda"/>
-    <xs:enumeration value="Volkswagen"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="marki">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Nissan"/>
+			<xs:enumeration value="Audi"/>
+			<xs:enumeration value="BMW"/>
+			<xs:enumeration value="Renault"/>
+			<xs:enumeration value="Seat"/>
+			<xs:enumeration value="Honda"/>
+			<xs:enumeration value="Volkswagen"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="silnik">
-<xs:restriction base="xs:float">
-    <xs:pattern value="[1-4][.][0-9]"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="silnik">
+		<xs:restriction base="xs:float">
+			<xs:pattern value="[1-4][.][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="dataProd">
-<xs:restriction base="xs:int">
-    <xs:minInclusive value="1990"/>
-    <xs:maxInclusive value="2018"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="dataProd">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1990"/>
+			<xs:maxInclusive value="2018"/>
+		</xs:restriction>
+	</xs:simpleType>
 
-<xs:simpleType name="taknie">
-<xs:restriction base="xs:string">
-    <xs:enumeration value="Nie"/>
-    <xs:enumeration value="Tak"/>
-</xs:restriction>
-</xs:simpleType>
+	<xs:simpleType name="taknie">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Nie"/>
+			<xs:enumeration value="Tak"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 </xs:schema>
