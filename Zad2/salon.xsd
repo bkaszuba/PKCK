@@ -1,4 +1,4 @@
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/" xmlns:typy="http://example.com/"> 
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com" xmlns:typy="http://example.com"> 
     <xs:element name="salon">
         <xs:complexType>
             <xs:sequence>
@@ -61,7 +61,7 @@
                                             <xs:complexType>
                                                 <xs:simpleContent>
                                                     <xs:extension base="xs:int">
-                                                        <xs:attribute type="typy:jednostka" name="jednostka" use="optional"/>
+                                                        <xs:attribute type="typy:jednostkaDrogi" name="jednostka" use="optional"/>
                                                     </xs:extension>
                                                 </xs:simpleContent>
                                             </xs:complexType>
@@ -142,7 +142,7 @@
     
     <xs:simpleType name="silnik">
         <xs:restriction base="xs:float">
-            <xs:pattern value="[1-4][.][0-9]">
+            <xs:pattern value="[1-4][.][0-9]"/>
         </xs:restriction>
     </xs:simpleType>
     
