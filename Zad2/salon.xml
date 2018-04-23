@@ -16,13 +16,13 @@
         </autorzy>
     </opis>
     <marki>
-        <marka id="Nissan">Nissan</marka>
-        <marka id="Audi">Audi</marka>
-        <marka id="BMW">BMW</marka>
-        <marka id="Renault">Renault</marka>
-        <marka id="Seat">Seat</marka>
-        <marka id="Honda">Honda</marka>
-        <marka id="Volkswagen">Volkswagen</marka>
+        <marka idAuta="Nissan">Nissan</marka>
+        <marka idAuta="Audi">Audi</marka>
+        <marka idAuta="BMW">BMW</marka>
+        <marka idAuta="Renault">Renault</marka>
+        <marka idAuta="Seat">Seat</marka>
+        <marka idAuta="Honda">Honda</marka>
+        <marka idAuta="Volkswagen">Volkswagen</marka>
     </marki>
     <samochody>
         <samochód id="NM1" idref="Nissan">

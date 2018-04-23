@@ -33,13 +33,17 @@
 								<xs:complexType>
 									<xs:simpleContent>
 										<xs:extension base="xs:string">
-											<xs:attribute type="własny:marki" name="id" use="required"/>
+											<xs:attribute type="własny:marki" name="idAuta" use="required"/>
 										</xs:extension>
 									</xs:simpleContent>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
+					<xs:unique name="markaKey">
+						<xs:selector xpath="własny:marka" />
+						<xs:field xpath="@idAuta" />
+					</xs:unique>					
 				</xs:element>
 				<!-- Samochody -->
 				<xs:element name="samochody">
@@ -79,16 +83,22 @@
 										<xs:element type="własny:długiOpis" name="opis"/>
 										<xs:element type="własny:taknie" name="jestNowy"/>
 									</xs:sequence>
-									<xs:attribute type="własny:krótkaNazwa" name="id" use="optional"/>
+									<xs:attribute type="własny:krótkaNazwa" name="id" use="required"/>
 									<xs:attribute type="własny:marki" name="idref" use="required"/>
 								</xs:complexType>
 							</xs:element>
-						</xs:sequence>
+						</xs:sequence>	
 					</xs:complexType>
+					<xs:unique name="modelKey">
+						<xs:selector xpath="własny:samochód"/>
+						<xs:field xpath="@id" />
+					</xs:unique>
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	
+	
 	<!-- Własne typy -->
 	<xs:attributeGroup name="ostatniWłaścicielAtrybuty">
 		<xs:attribute name="imie" type="własny:długaNazwa" use="required"/>
