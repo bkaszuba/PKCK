@@ -9,12 +9,15 @@
         </head>
       <body>
         <div>
+           
           <a href="#autorzy">Autorzy</a>
           <a href="#stats_base">Statystyki ogólne</a>
           <a href="#marki">Marki</a>
           <a href="#stats">Statystyki miast</a>
           <h1 id="salon">Salon samochodowy</h1>
-
+            <p>
+		<img src="salon.jpg" alt="Salon" width="300" height="200" />
+          </p>
           <div class="autorzy">
           <h3 id="autorzy">Autorzy</h3>
           <xsl:for-each select="/salon/autorzy/autor">
@@ -118,7 +121,9 @@
             Raport wygenerowano: 
             <xsl:value-of select="/salon/data_wykonania_raportu"/>
         </p>
-        <a href="#salon">Do góry</a>
+        <p>
+      <a href="#salon">Do góry</a>
+        </p>
       </body>
     </html>
   </xsl:template>
