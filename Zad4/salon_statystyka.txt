@@ -1,0 +1,103 @@
+Data Raportu:                 2018-05-11T09:18:44.124+02:00
+Autorzy:
+
+Imie:                         Bartłomiej
+Nazwisko:                     Kaszuba
+Nr indeksu:                   203900
+
+Imie:                         Michał
+Nazwisko:                     Madej
+Nr indeksu:                   203933
+
+Statystyki ogólne:
+
+Liczba marek:                 7
+Liczba aut:                   21
+Liczba miast:                 4
+
+Statystyki szczegółowe:
+
+Audi
+
+Ilość modeli:                 4
+Ilość modeli Łódź:            0
+Ilość modeli Kraków:          1
+Ilość modeli Poznań:          1
+Ilość modeli Warszawa:        2
+
+BMW
+
+Ilość modeli:                 4
+Ilość modeli Łódź:            1
+Ilość modeli Kraków:          0
+Ilość modeli Poznań:          1
+Ilość modeli Warszawa:        2
+
+Honda
+
+Ilość modeli:                 2
+Ilość modeli Łódź:            1
+Ilość modeli Kraków:          0
+Ilość modeli Poznań:          1
+Ilość modeli Warszawa:        0
+
+Nissan
+
+Ilość modeli:                 3
+Ilość modeli Łódź:            3
+Ilość modeli Kraków:          0
+Ilość modeli Poznań:          0
+Ilość modeli Warszawa:        0
+
+Renault
+
+Ilość modeli:                 3
+Ilość modeli Łódź:            0
+Ilość modeli Kraków:          3
+Ilość modeli Poznań:          0
+Ilość modeli Warszawa:        0
+
+Seat
+
+Ilość modeli:                 2
+Ilość modeli Łódź:            0
+Ilość modeli Kraków:          0
+Ilość modeli Poznań:          2
+Ilość modeli Warszawa:        0
+
+Volkswagen
+
+Ilość modeli:                 3
+Ilość modeli Łódź:            0
+Ilość modeli Kraków:          1
+Ilość modeli Poznań:          0
+Ilość modeli Warszawa:        2
+
+Łódź
+
+Liczba samochodów:            5
+Średnia cena:                 83,059.20 PLN
+Średni przebieg:              44,830 km
+Średni rok produkcji:         2012
+
+Kraków
+
+Liczba samochodów:            5
+Średnia cena:                 29,919.20 PLN
+Średni przebieg:              75,069 km
+Średni rok produkcji:         2010
+
+Poznań
+
+Liczba samochodów:            5
+Średnia cena:                 59,219.60 PLN
+Średni przebieg:              80,364 km
+Średni rok produkcji:         2008
+
+Warszawa
+
+Liczba samochodów:            6
+Średnia cena:                 42,016.00 PLN
+Średni przebieg:              79,255 km
+Średni rok produkcji:         2009
+

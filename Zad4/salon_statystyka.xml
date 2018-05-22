@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<salon>
+   <data_wykonania_raportu>2018-05-11T09:18:44.124+02:00</data_wykonania_raportu>
+   <autorzy>
+      <autor>
+         <imie>Bartłomiej</imie>
+         <nazwisko>Kaszuba</nazwisko>
+         <nr_indeksu>203900</nr_indeksu>
+      </autor>
+      <autor>
+         <imie>Michał</imie>
+         <nazwisko>Madej</nazwisko>
+         <nr_indeksu>203933</nr_indeksu>
+      </autor>
+   </autorzy>
+   <statystyki_ogólne>
+      <liczba_marek>7</liczba_marek>
+      <liczba_aut>21</liczba_aut>
+      <liczba_miast>4</liczba_miast>
+   </statystyki_ogólne>
+   <marki>
+      <marka>
+         <nazwa_marki>Audi</nazwa_marki>
+         <ilość_modeli>4</ilość_modeli>
+         <ilość_modeli_Łódź>0</ilość_modeli_Łódź>
+         <ilość_modeli_Kraków>1</ilość_modeli_Kraków>
+         <ilość_modeli_Poznań>1</ilość_modeli_Poznań>
+         <ilość_modeli_Warszawa>2</ilość_modeli_Warszawa>
+      </marka>
+      <marka>
+         <nazwa_marki>BMW</nazwa_marki>
+         <ilość_modeli>4</ilość_modeli>
+         <ilość_modeli_Łódź>1</ilość_modeli_Łódź>
+         <ilość_modeli_Kraków>0</ilość_modeli_Kraków>
+         <ilość_modeli_Poznań>1</ilość_modeli_Poznań>
+         <ilość_modeli_Warszawa>2</ilość_modeli_Warszawa>
+      </marka>
+      <marka>
+         <nazwa_marki>Honda</nazwa_marki>
+         <ilość_modeli>2</ilość_modeli>
+         <ilość_modeli_Łódź>1</ilość_modeli_Łódź>
+         <ilość_modeli_Kraków>0</ilość_modeli_Kraków>
+         <ilość_modeli_Poznań>1</ilość_modeli_Poznań>
+         <ilość_modeli_Warszawa>0</ilość_modeli_Warszawa>
+      </marka>
+      <marka>
+         <nazwa_marki>Nissan</nazwa_marki>
+         <ilość_modeli>3</ilość_modeli>
+         <ilość_modeli_Łódź>3</ilość_modeli_Łódź>
+         <ilość_modeli_Kraków>0</ilość_modeli_Kraków>
+         <ilość_modeli_Poznań>0</ilość_modeli_Poznań>
+         <ilość_modeli_Warszawa>0</ilość_modeli_Warszawa>
+      </marka>
+      <marka>
+         <nazwa_marki>Renault</nazwa_marki>
+         <ilość_modeli>3</ilość_modeli>
+         <ilość_modeli_Łódź>0</ilość_modeli_Łódź>
+         <ilość_modeli_Kraków>3</ilość_modeli_Kraków>
+         <ilość_modeli_Poznań>0</ilość_modeli_Poznań>
+         <ilość_modeli_Warszawa>0</ilość_modeli_Warszawa>
+      </marka>
+      <marka>
+         <nazwa_marki>Seat</nazwa_marki>
+         <ilość_modeli>2</ilość_modeli>
+         <ilość_modeli_Łódź>0</ilość_modeli_Łódź>
+         <ilość_modeli_Kraków>0</ilość_modeli_Kraków>
+         <ilość_modeli_Poznań>2</ilość_modeli_Poznań>
+         <ilość_modeli_Warszawa>0</ilość_modeli_Warszawa>
+      </marka>
+      <marka>
+         <nazwa_marki>Volkswagen</nazwa_marki>
+         <ilość_modeli>3</ilość_modeli>
+         <ilość_modeli_Łódź>0</ilość_modeli_Łódź>
+         <ilość_modeli_Kraków>1</ilość_modeli_Kraków>
+         <ilość_modeli_Poznań>0</ilość_modeli_Poznań>
+         <ilość_modeli_Warszawa>2</ilość_modeli_Warszawa>
+      </marka>
+   </marki>
+   <statystyki>
+      <miasta>
+         <miasto>
+            <nazwa>Łódź</nazwa>
+            <liczba_samochodow>5</liczba_samochodow>
+            <średnia_cena>83,059.20 PLN</średnia_cena>
+            <średni_przebieg>44,830 km</średni_przebieg>
+            <średni_rok_produkcji>2012</średni_rok_produkcji>
+         </miasto>
+         <miasto>
+            <nazwa>Kraków</nazwa>
+            <liczba_samochodow>5</liczba_samochodow>
+            <średnia_cena>29,919.20 PLN</średnia_cena>
+            <średni_przebieg>75,069 km</średni_przebieg>
+            <średni_rok_produkcji>2010</średni_rok_produkcji>
+         </miasto>
+         <miasto>
+            <nazwa>Poznań</nazwa>
+            <liczba_samochodow>5</liczba_samochodow>
+            <średnia_cena>59,219.60 PLN</średnia_cena>
+            <średni_przebieg>80,364 km</średni_przebieg>
+            <średni_rok_produkcji>2008</średni_rok_produkcji>
+         </miasto>
+         <miasto>
+            <nazwa>Warszawa</nazwa>
+            <liczba_samochodow>6</liczba_samochodow>
+            <średnia_cena>42,016.00 PLN</średnia_cena>
+            <średni_przebieg>79,255 km</średni_przebieg>
+            <średni_rok_produkcji>2009</średni_rok_produkcji>
+         </miasto>
+      </miasta>
+   </statystyki>
+</salon>
