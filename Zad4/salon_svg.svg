@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg
+  PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200">
+   <script type="text/ecmascript"> 
+                
+                    function onMouseOverWykresAut(evt) 
+                    {
+                        var liczby = document.getElementsByClassName("liczbaSamochodow");
+                        for (i = 0; i &lt; liczby.length; ++i) 
+                        {
+                          liczby[i].setAttribute("visibility", "visible");
+                        }
+                    }
+                    function onMouseOutWykresAut(evt) 
+                    {
+                        var liczby = document.getElementsByClassName("liczbaSamochodow");
+                        for (i = 0; i &lt; liczby.length; ++i) 
+                        {
+                          liczby[i].setAttribute("visibility", "hidden");
+                        }
+                    }
+                    function onMouseOverWykresMarek(evt) 
+                    {
+                        var liczby = document.getElementsByClassName("liczbaMarek");
+                        for (i = 0; i &lt; liczby.length; ++i) 
+                        {
+                          liczby[i].setAttribute("visibility", "visible");
+                        }
+                    }
+                    function onMouseOutWykresMarek(evt) 
+                    {
+                        var liczby = document.getElementsByClassName("liczbaMarek");
+                        for (i = 0; i &lt; liczby.length; ++i) 
+                        {
+                          liczby[i].setAttribute("visibility", "hidden");
+                        }
+                    }
+                    function onClickAutorzy(evt)
+                    {
+                        var autorzy = document.getElementById("autorzy");
+                        var visibility = autorzy.getAttribute("visibility");
+                        if(visibility==="visible")
+                        {
+                            autorzy.setAttribute("visibility", "hidden");
+                        }
+                        else
+                        {
+                            autorzy.setAttribute("visibility", "visible");
+                        }
+                    }
+                    
+                    function onClickData(evt)
+                    {
+                        var autorzy = document.getElementById("data");
+                        var visibility = autorzy.getAttribute("visibility");
+                        if(visibility==="visible")
+                        {
+                            autorzy.setAttribute("visibility", "hidden");
+                        }
+                        else
+                        {
+                            autorzy.setAttribute("visibility", "visible");
+                        }
+                    }
+            
+            </script>
+   <rect x="0" y="0" width="1100" height="450" fill="DarkGrey"/>
+   <text x="80"
+         y="20"
+         font-size="24"
+         fill="black"
+         font-weight="bold">Liczba dostępnych samochodów</text>
+   <g id="poleWykresu"
+      width="450"
+      height="265"
+      onmouseover="onMouseOverWykresAut(evt)"
+      onmouseout="onMouseOutWykresAut(evt)">
+      <rect x="25"
+            y="30"
+            width="450"
+            height="285"
+            fill="Grey"
+            stroke="DimGrey"/>
+      <rect x="70" width="50" fill="blue" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="200"
+                  dur="3s"
+                  fill="freeze"/>
+         <animate attributeName="y" from="290" to="90" dur="3s" fill="freeze"/>
+      </rect>
+      <text x="70"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Łódź</text>
+      <text class="liczbaSamochodow"
+            visibility="hidden"
+            x="90"
+            y="85"
+            font-size="16"
+            fill="black"
+            font-weight="bold">5</text>
+      <rect x="170" width="50" fill="blue" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="200"
+                  dur="3s"
+                  fill="freeze"/>
+         <animate attributeName="y" from="290" to="90" dur="3s" fill="freeze"/>
+      </rect>
+      <text x="170"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Kraków</text>
+      <text class="liczbaSamochodow"
+            visibility="hidden"
+            x="190"
+            y="85"
+            font-size="16"
+            fill="black"
+            font-weight="bold">5</text>
+      <rect x="270" width="50" fill="blue" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="200"
+                  dur="3s"
+                  fill="freeze"/>
+         <animate attributeName="y" from="290" to="90" dur="3s" fill="freeze"/>
+      </rect>
+      <text x="270"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Poznań</text>
+      <text class="liczbaSamochodow"
+            visibility="hidden"
+            x="290"
+            y="85"
+            font-size="16"
+            fill="black"
+            font-weight="bold">5</text>
+      <rect x="370" width="50" fill="blue" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="240"
+                  dur="3s"
+                  fill="freeze"/>
+         <animate attributeName="y" from="290" to="50" dur="3s" fill="freeze"/>
+      </rect>
+      <text x="370"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Warszawa</text>
+      <text class="liczbaSamochodow"
+            visibility="hidden"
+            x="390"
+            y="45"
+            font-size="16"
+            fill="black"
+            font-weight="bold">6</text>
+   </g>
+   <text x="650"
+         y="20"
+         font-size="24"
+         fill="black"
+         font-weight="bold"
+         onclick="onClickAutorzy(evt)">Liczba dostępnych marek</text>
+   <g id="poleWykresu2"
+      width="605"
+      height="265"
+      onmouseover="onMouseOverWykresMarek(evt)"
+      onmouseout="onMouseOutWykresMarek(evt)">
+      <rect x="490"
+            y="30"
+            width="605"
+            height="285"
+            fill="Grey"
+            stroke="DimGrey"/>
+      <rect x="530" width="50" fill="white" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="160"
+                  dur="5s"
+                  fill="freeze"/>
+         <animate attributeName="y"
+                  from="290"
+                  to="130"
+                  dur="5s"
+                  fill="freeze"/>
+      </rect>
+      <text x="530"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Audi</text>
+      <text class="liczbaMarek"
+            visibility="hidden"
+            x="550"
+            y="125"
+            font-size="16"
+            fill="black"
+            font-weight="bold">4</text>
+      <rect x="610" width="50" fill="white" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="160"
+                  dur="5s"
+                  fill="freeze"/>
+         <animate attributeName="y"
+                  from="290"
+                  to="130"
+                  dur="5s"
+                  fill="freeze"/>
+      </rect>
+      <text x="610"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">BMW</text>
+      <text class="liczbaMarek"
+            visibility="hidden"
+            x="630"
+            y="125"
+            font-size="16"
+            fill="black"
+            font-weight="bold">4</text>
+      <rect x="690" width="50" fill="white" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="80"
+                  dur="5s"
+                  fill="freeze"/>
+         <animate attributeName="y"
+                  from="290"
+                  to="210"
+                  dur="5s"
+                  fill="freeze"/>
+      </rect>
+      <text x="690"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Honda</text>
+      <text class="liczbaMarek"
+            visibility="hidden"
+            x="710"
+            y="205"
+            font-size="16"
+            fill="black"
+            font-weight="bold">2</text>
+      <rect x="770" width="50" fill="white" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="120"
+                  dur="5s"
+                  fill="freeze"/>
+         <animate attributeName="y"
+                  from="290"
+                  to="170"
+                  dur="5s"
+                  fill="freeze"/>
+      </rect>
+      <text x="770"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Nissan</text>
+      <text class="liczbaMarek"
+            visibility="hidden"
+            x="790"
+            y="165"
+            font-size="16"
+            fill="black"
+            font-weight="bold">3</text>
+      <rect x="850" width="50" fill="white" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="120"
+                  dur="5s"
+                  fill="freeze"/>
+         <animate attributeName="y"
+                  from="290"
+                  to="170"
+                  dur="5s"
+                  fill="freeze"/>
+      </rect>
+      <text x="850"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Renault</text>
+      <text class="liczbaMarek"
+            visibility="hidden"
+            x="870"
+            y="165"
+            font-size="16"
+            fill="black"
+            font-weight="bold">3</text>
+      <rect x="930" width="50" fill="white" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="80"
+                  dur="5s"
+                  fill="freeze"/>
+         <animate attributeName="y"
+                  from="290"
+                  to="210"
+                  dur="5s"
+                  fill="freeze"/>
+      </rect>
+      <text x="930"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Seat</text>
+      <text class="liczbaMarek"
+            visibility="hidden"
+            x="950"
+            y="205"
+            font-size="16"
+            fill="black"
+            font-weight="bold">2</text>
+      <rect x="1010" width="50" fill="white" stroke="black">
+         <animate attributeName="height"
+                  from="0"
+                  to="120"
+                  dur="5s"
+                  fill="freeze"/>
+         <animate attributeName="y"
+                  from="290"
+                  to="170"
+                  dur="5s"
+                  fill="freeze"/>
+      </rect>
+      <text x="1010"
+            y="305"
+            font-size="16"
+            fill="black"
+            font-weight="bold">Volkswagen</text>
+      <text class="liczbaMarek"
+            visibility="hidden"
+            x="1030"
+            y="165"
+            font-size="16"
+            fill="black"
+            font-weight="bold">3</text>
+   </g>
+   <text x="25"
+         y="380"
+         font-size="24"
+         fill="black"
+         font-weight="bold"
+         onclick="onClickAutorzy(evt)">Autorzy:</text>
+   <g id="autorzy" visibility="visible">
+      <text x="150"
+            y="380"
+            font-size="18"
+            fill="red"
+            font-weight="bold">Bartłomiej Kaszuba 203900</text>
+      <text x="150"
+            y="400"
+            font-size="18"
+            fill="red"
+            font-weight="bold">Michał Madej 203933</text>
+   </g>
+   <text x="600"
+         y="380"
+         font-size="24"
+         fill="black"
+         font-weight="bold"
+         onclick="onClickData(evt)">Wykonano: </text>
+   <g id="data" visibility="visible">
+      <text x="740"
+            y="380"
+            font-size="18"
+            fill="red"
+            font-weight="bold">2018-05-11T09:18:44.124+02:00
+</text>
+   </g>
+</svg>
