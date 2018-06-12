@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<salon>
+    <opis>
+        <temat>Salon samochodowy</temat>
+        <autorzy>
+            <autor>
+                <imię>Michał</imię>
+                <nazwisko>Madej</nazwisko>
+                <nr_indeksu>203933</nr_indeksu>
+            </autor>
+            <autor>
+                <imię>Bartłomiej</imię>
+                <nazwisko>Kaszuba</nazwisko>
+                <nr_indeksu>203900</nr_indeksu>
+            </autor>
+        </autorzy>
+    </opis>
+    <marki>
+        <marka idAuta="Nissan">Nissan</marka>
+        <marka idAuta="Audi">Audi</marka>
+        <marka idAuta="BMW">BMW</marka>
+        <marka idAuta="Renault">Renault</marka>
+        <marka idAuta="Seat">Seat</marka>
+        <marka idAuta="Honda">Honda</marka>
+        <marka idAuta="Volkswagen">Volkswagen</marka>
+    </marki>
+    <samochody>
+        <samochód id="NM1" idref="Nissan">
+            <model>Micra</model>
+            <silnik>1.4</silnik>
+            <dataProdukcji>2002</dataProdukcji>
+            <cena waluta="PLN">7000</cena>
+            <przebieg jednostka="km">98000</przebieg>
+            <dataOstatniegoWłaściciela>2014-09-23</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Jan" nazwisko="Kowalski" nrTelefonu="664213532"/>
+            <opis>Lekki samochód miejski ze spalaniem mNiejszym 6l/100km</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="VP1" idref="Volkswagen">
+            <model>Passat</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2004</dataProdukcji>
+            <cena waluta="PLN">17399</cena>
+            <przebieg jednostka="km">129929</przebieg>
+            <dataOstatniegoWłaściciela>2010-12-27</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Piotr" nazwisko="Janicki" nrTelefonu="622135332"/>
+            <opis>Słynne Passeratti, król polskich dróg</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="SI1" idref="Seat">
+            <model>Ibiza</model>
+            <silnik>1.4</silnik>
+            <dataProdukcji>1997</dataProdukcji>
+            <cena waluta="PLN">3499</cena>
+            <przebieg jednostka="km">182199</przebieg>
+            <dataOstatniegoWłaściciela>2009-03-11</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Kamil" nazwisko="Jakonek" nrTelefonu="731235321"/>
+            <opis>Samochód miejski ze spalaniem w granicach 7l/100km</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="RM1" idref="Renault">
+            <model>Megane</model>
+            <silnik>1.8</silnik>
+            <dataProdukcji>2008</dataProdukcji>
+            <cena waluta="PLN">14999</cena>
+            <przebieg jednostka="km">84000</przebieg>
+            <dataOstatniegoWłaściciela>2015-04-09</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Andrzej" nazwisko="Troczyński" nrTelefonu="532643873"/>
+            <opis>Pięciodrzwiowy samochód rodzinny z niedużą pojemnością silnika</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="HC1" idref="Honda">
+            <model>Civic</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2000</dataProdukcji>
+            <cena waluta="PLN">6599</cena>
+            <przebieg jednostka="km">134123</przebieg>
+            <dataOstatniegoWłaściciela>2002-11-14</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Arkadiusz" nazwisko="Gazonek" nrTelefonu="621423789"/>
+            <opis>Lekki samochód z dużą pojemnością silnika oznacza duże przyspieszenie</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="RL1" idref="Renault">
+            <model>Laguna</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2012</dataProdukcji>
+            <cena waluta="PLN">32199</cena>
+            <przebieg jednostka="km">34159</przebieg>
+            <dataOstatniegoWłaściciela>2014-03-17</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Paweł" nazwisko="Ważny" nrTelefonu="689321654"/>
+            <opis>Samochód-limuzyna z rozsądnym balansem między komfortem a ceną</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="BM1" idref="BMW">
+            <model>M3</model>
+            <silnik>2.5</silnik>
+            <dataProdukcji>2015</dataProdukcji>
+            <cena waluta="PLN">99000</cena>
+            <przebieg jednostka="km">32100</przebieg>
+            <dataOstatniegoWłaściciela>2017-01-03</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Kamila" nazwisko="Wawrzyniak" nrTelefonu="652374214"/>
+            <opis>Sportowy samochód dla prawdziwych koneserów</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="BX1" idref="BMW">
+            <model>X5</model>
+            <silnik>3.0</silnik>
+            <dataProdukcji>2016</dataProdukcji>
+            <cena waluta="PLN">129999</cena>
+            <przebieg jednostka="km">20000</przebieg>
+            <dataOstatniegoWłaściciela>2017-08-17</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Tobiasz" nazwisko="Nowak" nrTelefonu="689213443"/>
+            <opis>Samochód terenowy, komfort jazdy gwarantowany</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="BX2" idref="BMW">
+            <model>X7</model>
+            <silnik>3.5</silnik>
+            <dataProdukcji>2014</dataProdukcji>
+            <cena waluta="PLN">78999</cena>
+            <przebieg jednostka="km">78145</przebieg>
+            <dataOstatniegoWłaściciela>2015-09-09</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Bartek" nazwisko="Gnowiak" nrTelefonu="621879811"/>
+            <opis>Samochód terenowy, najnowszy model BMW, prawdziwa perełka</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="AA1" idref="Audi">
+            <model>A3</model>
+            <silnik>1.8</silnik>
+            <dataProdukcji>2012</dataProdukcji>
+            <cena waluta="PLN">32000</cena>
+            <przebieg jednostka="km">12100</przebieg>
+            <dataOstatniegoWłaściciela>2013-01-01</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Julia" nazwisko="Zamojska" nrTelefonu="554211773"/>
+            <opis>Jeden z mniejszych modeli z serii A, lecz nie oznacza gorszy</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="VG1" idref="Volkswagen">
+            <model>Golf</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2007</dataProdukcji>
+            <cena waluta="PLN">21999</cena>
+            <przebieg jednostka="km">89929</przebieg>
+            <dataOstatniegoWłaściciela>2014-09-23</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Robert" nazwisko="Hanzak" nrTelefonu="587213532"/>
+            <opis>Słynny samochód każdego młodego kierowcy</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="AA2" idref="Audi">
+            <model>A5</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2014</dataProdukcji>
+            <cena waluta="PLN">52000</cena>
+            <przebieg jednostka="km">43100</przebieg>
+            <dataOstatniegoWłaściciela>2015-06-28</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Paulina" nazwisko="Klista" nrTelefonu="542879543"/>
+            <opis>Prawdziwa niemiecka precyzja, to jest to co charakteryzuje to auto</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="AA3" idref="Audi">
+            <model>A8</model>
+            <silnik>3.0</silnik>
+            <dataProdukcji>2015</dataProdukcji>
+            <cena waluta="PLN">83000</cena>
+            <przebieg jednostka="km">12099</przebieg>
+            <dataOstatniegoWłaściciela>2016-12-11</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Olga" nazwisko="Drozd" nrTelefonu="678998435"/>
+            <opis>Auto-limuzyna z najwyżej półki. Komfort gwarantowany</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="AR1" idref="Audi">
+            <model>R8</model>
+            <silnik>3.5</silnik>
+            <dataProdukcji>2017</dataProdukcji>
+            <cena waluta="PLN">123000</cena>
+            <przebieg jednostka="km">1299</przebieg>
+            <dataOstatniegoWłaściciela>2018-02-12</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Konrad" nazwisko="Zając" nrTelefonu="653778991"/>
+            <opis>Prawdziwa błyskawica, pojemność silnika 3.5 mówi sama za siebie</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="RM2" idref="Renault">
+            <model>Megane</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2010</dataProdukcji>
+            <cena waluta="PLN">32999</cena>
+            <przebieg jednostka="km">84159</przebieg>
+            <dataOstatniegoWłaściciela>2013-11-09</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Magda" nazwisko="Poranek" nrTelefonu="542314667"/>
+            <opis>Silnik 2.0 to idealny balans pomiędzy spalaniem w mieście jak i na trasie</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="VU1" idref="Volkswagen">
+            <model>Up</model>
+            <silnik>1.0</silnik>
+            <dataProdukcji>2010</dataProdukcji>
+            <cena waluta="PLN">23099</cena>
+            <przebieg jednostka="km">69329</przebieg>
+            <dataOstatniegoWłaściciela>2011-11-11</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Janusz" nazwisko="Cyranek" nrTelefonu="552311678"/>
+            <opis>Prawdziwy samochód miejski, spalanie wręcz niezauważalne</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="SL1" idref="Seat">
+            <model>Leon</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2010</dataProdukcji>
+            <cena waluta="PLN">64000</cena>
+            <przebieg jednostka="km">52100</przebieg>
+            <dataOstatniegoWłaściciela>2012-11-27</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Ewa" nazwisko="Klon" nrTelefonu="542768321"/>
+            <opis>Balans między komfortem, prędkościa, spalaniem jak i ceną to jest to co charakteryzuje to auto</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="NJ1" idref="Nissan">
+            <model>Juke</model>
+            <silnik>2.5</silnik>
+            <dataProdukcji>2017</dataProdukcji>
+            <cena waluta="PLN">132999</cena>
+            <przebieg jednostka="km">1300</przebieg>
+            <dataOstatniegoWłaściciela>2018-02-23</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Genowefa" nazwisko="Staropolska" nrTelefonu="586666782"/>
+            <opis>Samochód terenowy, komfort jazdy po polskich drogach murowany</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="HJ1" idref="Honda">
+            <model>Jazz</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2008</dataProdukcji>
+            <cena waluta="PLN">35199</cena>
+            <przebieg jednostka="km">89200</przebieg>
+            <dataOstatniegoWłaściciela>2013-03-14</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Łukasz" nazwisko="Prawilski" nrTelefonu="677432884"/>
+            <opis>Samochód rodzinny na mniejsze jak i większe podróże</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="BE1" idref="BMW">
+            <model>E46</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>1998</dataProdukcji>
+            <cena waluta="PLN">12999</cena>
+            <przebieg jednostka="km">213929</przebieg>
+            <dataOstatniegoWłaściciela>2016-11-02</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Filip" nazwisko="Jutrzenka" nrTelefonu="553765221"/>
+            <opis>Słynne E46 to samochód dla prawdziwych pasjonatów tej marki</opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+        <samochód id="NQ1" idref="Nissan">
+            <model>Qashqai</model>
+            <silnik>2.0</silnik>
+            <dataProdukcji>2017</dataProdukcji>
+            <cena waluta="PLN">110099</cena>
+            <przebieg jednostka="km">15650</przebieg>
+            <dataOstatniegoWłaściciela>2018-03-01</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Lolita" nazwisko="Andrzejak" nrTelefonu="631783546"/>
+            <opis>Samochód terenowy, który nigdy nie zawodzi </opis>
+            <jestNowy>Nie</jestNowy>
+        </samochód>
+    </samochody>
+</salon>
