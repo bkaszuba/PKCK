@@ -23,4 +23,11 @@ public class Marka {
     }
 
 
+    public void setIdAuta(String idAuta) {
+        this.idAuta = idAuta;
+    }
+
+    public void setMarka(String marka) {
+        this.marka = marka;
+    }
 }

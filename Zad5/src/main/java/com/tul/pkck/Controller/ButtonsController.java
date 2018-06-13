@@ -9,7 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
@@ -23,12 +22,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-import static java.lang.String.*;
+import static java.lang.String.valueOf;
 
 public class ButtonsController implements Initializable {
 
@@ -61,6 +61,8 @@ public class ButtonsController implements Initializable {
     TextField nazWla;
     @FXML
     TextField nrWla;
+    @FXML
+    TextField nowaMarka;
     @FXML
     TableView<Samochod> tableView = new TableView<>();
 
@@ -127,41 +129,46 @@ public class ButtonsController implements Initializable {
 
     public void saveCarInfo(ActionEvent actionEvent) {
         Samochod samochod = salon.getSamochody().getSamochody().stream().filter(id -> id.getId().equals(comboBox.getValue())).findFirst().get();
-        samochod.setIdRef(comboMarki.getValue());
-        samochod.setModel(model.getText());
-        samochod.setSilnik(Double.parseDouble(silnik.getText()));
-        samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
-        samochod.getCena().setCena(cena.getText());
-        samochod.getPrzebieg().setPrzebieg(przebieg.getText());
-        samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
-        samochod.setOpis(opis.getText());
-        samochod.setJestNowy(comboNowy.getValue());
-        samochod.getDaneWłaściciela().setImie(imieWla.getText());
-        samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
-        samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
-        tableView.refresh();
+        if(isValidDate(dataOstat.getText())) {
+            samochod.setIdRef(comboMarki.getValue());
+            samochod.setModel(model.getText());
+            samochod.setSilnik(Double.parseDouble(silnik.getText()));
+            samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
+            samochod.getCena().setCena(cena.getText());
+            samochod.getPrzebieg().setPrzebieg(przebieg.getText());
+            samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
+            samochod.setOpis(opis.getText());
+            samochod.setJestNowy(comboNowy.getValue());
+            samochod.getDaneWłaściciela().setImie(imieWla.getText());
+            samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
+            samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
+            tableView.refresh();
+        }
     }
 
     public void addCar(ActionEvent actionEvent) {
         Samochod samochod = new Samochod();
-        samochod.setIdRef(comboMarki.getValue());
-        samochod.setModel(model.getText());
-        samochod.setSilnik(Double.parseDouble(silnik.getText()));
-        samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
-        samochod.getCena().setCena(cena.getText());
-        samochod.getCena().setWaluta("PLN");
-        samochod.getPrzebieg().setPrzebieg(przebieg.getText());
-        samochod.getPrzebieg().setJednostka("km");
-        samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
-        samochod.setOpis(opis.getText());
-        samochod.setJestNowy(comboNowy.getValue());
-        samochod.getDaneWłaściciela().setImie(imieWla.getText());
-        samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
-        samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
-        samochod.setId(generateCarId(samochod));
-        salon.getSamochody().getSamochody().add(samochod);
-        tableView.getItems().clear();
-        fillTableView();
+        if(isValidDate(dataOstat.getText())) {
+            samochod.setIdRef(comboMarki.getValue());
+            samochod.setModel(model.getText());
+            samochod.setSilnik(Double.parseDouble(silnik.getText()));
+            samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
+            samochod.getCena().setCena(cena.getText());
+            samochod.getCena().setWaluta("PLN");
+            samochod.getPrzebieg().setPrzebieg(przebieg.getText());
+            samochod.getPrzebieg().setJednostka("km");
+            samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
+            samochod.setOpis(opis.getText());
+            samochod.setJestNowy(comboNowy.getValue());
+            samochod.getDaneWłaściciela().setImie(imieWla.getText());
+            samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
+            samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
+            samochod.setId(generateCarId(samochod));
+            salon.getSamochody().getSamochody().add(samochod);
+            tableView.getItems().clear();
+            fillTableView();
+            comboBox.setItems(getObservableWtihIds(salon));
+        }
     }
 
     public void deleteCar(ActionEvent actionEvent) {
@@ -171,9 +178,48 @@ public class ButtonsController implements Initializable {
                 index = i;
             }
         }
+        comboMarki.setValue("");
+        model.setText("");
+        silnik.setText("");
+        dataProd.setText("");
+        cena.setText("");
+        przebieg.setText("");
+        dataOstat.setText("");
+        opis.setText("");
+        comboNowy.setValue("");
+        imieWla.setText("");
+        nazWla.setText("");
+        nrWla.setText("");
         salon.getSamochody().getSamochody().remove(index);
         tableView.getItems().clear();
         fillTableView();
+        comboBox.getItems().clear();
+        comboBox.setItems(getObservableWtihIds(salon));
+    }
+
+    public void addMarka(ActionEvent actionEvent) {
+        String nazwa = nowaMarka.getText();
+        Marka marka = new Marka();
+        if(checkIfMarkaExists(nazwa)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Ta marka istnieje", ButtonType.OK);
+            alert.showAndWait();
+        } else {
+            marka.setIdAuta(nazwa);
+            marka.setMarka(nazwa);
+            salon.getMarki().getMarki().add(marka);
+            comboMarki.setItems(getObservableWtihMarki(salon));
+        }
+
+    }
+
+    private boolean checkIfMarkaExists(String nazwa) {
+        Boolean exists = false;
+        for (Marka marka: salon.getMarki().getMarki()) {
+            if(marka.getIdAuta().equals(nazwa)) {
+                exists = true;
+            }
+        }
+        return exists;
     }
 
     private void fillTableView() {
@@ -191,7 +237,7 @@ public class ButtonsController implements Initializable {
         silnik.setText("Silnik");
         silnik.setCellValueFactory(c -> new SimpleStringProperty(valueOf(c.getValue().getSilnik())));
         TableColumn<Samochod, String> dataProd = new TableColumn<>();
-        dataProd.setText("Data Prod");
+        dataProd.setText("Data produkcji");
         dataProd.setCellValueFactory(c -> new SimpleStringProperty(valueOf(c.getValue().getDataProdukcji())));
         TableColumn<Samochod, String> cena = new TableColumn<>();
         cena.setText("Cena");
@@ -200,19 +246,19 @@ public class ButtonsController implements Initializable {
         przebieg.setText("Przebieg");
         przebieg.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getPrzebieg().getPrzebieg() + c.getValue().getPrzebieg().getJednostka()));
         TableColumn<Samochod, String> dataOstWla = new TableColumn<>();
-        dataOstWla.setText("Data Właś");
+        dataOstWla.setText("Data ostatniego właściciela");
         dataOstWla.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getDataOstatniegoWłaściciela()));
         TableColumn<Samochod, String> nowy = new TableColumn<>();
-        nowy.setText("Nowy?");
+        nowy.setText("Czy jest nowy?");
         nowy.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getJestNowy()));
         TableColumn<Samochod, String> imeWl = new TableColumn<>();
-        imeWl.setText("ImięOst Wła");
+        imeWl.setText("Imię byłego właściciela");
         imeWl.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getDaneWłaściciela().getImie()));
         TableColumn<Samochod, String> nazwWl = new TableColumn<>();
-        nazwWl.setText("NazwOst Wła");
+        nazwWl.setText("Nazwisko byłego właściciela");
         nazwWl.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getDaneWłaściciela().getNazwisko()));
         TableColumn<Samochod, String> nrWl = new TableColumn<>();
-        nrWl.setText("NrOst Wła");
+        nrWl.setText("Numer byłego właściciela");
         nrWl.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getDaneWłaściciela().getNrTelefonu()));
         tableView.getColumns().addAll(id, marka, model, silnik, dataProd, cena, przebieg, dataOstWla, nowy, imeWl, nazwWl, nrWl);
     }
@@ -285,6 +331,18 @@ public class ButtonsController implements Initializable {
                 idExists = true;
         }
         return idExists;
+    }
+
+    public boolean isValidDate(String dateString) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            df.parse(dateString);
+            return true;
+        } catch (ParseException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format daty (YYYY-MM-DD to prawidłowy)", ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
     }
 
 }

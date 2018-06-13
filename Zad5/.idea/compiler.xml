@@ -9,5 +9,8 @@
         <module name="XMLInPractice" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="XMLInPractice" target="1.9" />
+    </bytecodeTargetLevel>
   </component>
 </project>
