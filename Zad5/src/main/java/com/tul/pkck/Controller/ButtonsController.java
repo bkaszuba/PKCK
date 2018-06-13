@@ -1,8 +1,10 @@
 package com.tul.pkck.Controller;
 
+import com.itextpdf.text.DocumentException;
 import com.tul.pkck.Model.Marka;
 import com.tul.pkck.Model.Salon;
 import com.tul.pkck.Model.Samochod;
+import com.tul.pkck.Parser.PDFParser;
 import com.tul.pkck.Parser.TXTParser;
 import com.tul.pkck.Parser.XMLParser;
 import javafx.beans.property.SimpleStringProperty;
@@ -131,6 +133,28 @@ public class ButtonsController implements Initializable {
             }
         }
         else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Nie wybrano pliku", ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    public void saveToPDF(ActionEvent actionEvent) {
+        PDFParser pdfParser = new PDFParser();
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if(selectedFile != null) {
+            try {
+                pdfParser.saveToPDF(selectedFile.getAbsolutePath(), salon);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Przekonwertowano pomyślnie", ButtonType.OK);
+                alert.showAndWait();
+            } catch (DocumentException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Wystąpił problem podczas konwertowania", ButtonType.OK);
+                alert.showAndWait();
+                e.printStackTrace();
+            }
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Nie wybrano pliku", ButtonType.OK);
             alert.showAndWait();
         }

@@ -23,6 +23,7 @@
                               <Button layoutX="11.0" layoutY="87.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="52.0" prefWidth="136.0" text="Load custom XML" visible="false" fx:id="xmlChoose" />
                               <Button layoutX="41.0" layoutY="79.0" mnemonicParsing="false" onAction="#saveToXML" prefHeight="52.0" prefWidth="136.0" text="Save new XML" />
                               <Button layoutX="62.0" layoutY="255.0" mnemonicParsing="false" onAction="#saveToTXT" text="Convert to TXT" />
+                              <Button layoutX="62.0" layoutY="295.0" mnemonicParsing="false" onAction="#saveToPDF" text="Convert to PDF" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="925.0">
