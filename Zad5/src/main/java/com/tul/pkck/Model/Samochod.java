@@ -49,4 +49,52 @@ public class Samochod {
         @XmlValue
         private String przebieg;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getIdRef() {
+        return idRef;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public double getSilnik() {
+        return silnik;
+    }
+
+    public Cena getCena() {
+        return cena;
+    }
+
+    public int getDataProdukcji() {
+        return dataProdukcji;
+    }
+
+    public String getJednostka() {
+        return jednostka;
+    }
+
+    public Przebieg getPrzebieg() {
+        return przebieg;
+    }
+
+    public String getDataOstatniegoWłaściciela() {
+        return dataOstatniegoWłaściciela;
+    }
+
+    public DaneWłaściciela getDaneWłaściciela() {
+        return daneWłaściciela;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public String getJestNowy() {
+        return jestNowy;
+    }
 }

@@ -9,7 +9,11 @@ import java.util.List;
  * Created by Kaszuba on 12.06.2018.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-class Samochody {
+public class Samochody {
     @XmlElement(name="samochód")
     private List<Samochod> samochody;
+
+    public List<Samochod> getSamochody() {
+        return samochody;
+    }
 }
