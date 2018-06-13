@@ -4,11 +4,12 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tul.pkck.Controller.ButtonsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tul.pkck.Controller.ButtonsController">
    <children>
       <SplitPane dividerPositions="0.5" layoutY="-1.0" orientation="VERTICAL" prefHeight="700.0" prefWidth="900.0">
         <items>
@@ -19,7 +20,8 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="257.0" prefWidth="259.0">
                            <children>
                               <Button fx:id="loadXML" layoutX="8.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadXML" prefHeight="52.0" prefWidth="136.0" text="Load default XML" />
-                              <Button layoutX="11.0" layoutY="87.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="52.0" prefWidth="136.0" text="Load custom XML" fx:id="xmlChoose" />
+                              <Button layoutX="11.0" layoutY="87.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="52.0" prefWidth="136.0" text="Load custom XML" visible="false" fx:id="xmlChoose" />
+                              <Button layoutX="8.0" layoutY="277.0" mnemonicParsing="false" onAction="#saveToXML" prefHeight="52.0" prefWidth="136.0" text="Save new XML" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="236.0" prefWidth="262.0">
@@ -33,28 +35,36 @@
                               <TextField fx:id="przebieg" layoutX="428.0" layoutY="175.0" />
                               <TextField fx:id="dataOstat" layoutX="428.0" layoutY="208.0" />
                               <TextField fx:id="opis" layoutX="428.0" layoutY="245.0" />
-                              <TextField fx:id="nowy" layoutX="428.0" layoutY="278.0" />
                               <TextField fx:id="imieWla" layoutX="428.0" layoutY="311.0" prefHeight="25.0" prefWidth="81.0" />
                               <TextField fx:id="nazWla" layoutX="523.0" layoutY="311.0" prefHeight="25.0" prefWidth="73.0" />
                               <TextField fx:id="nrWla" layoutX="605.0" layoutY="311.0" prefHeight="25.0" prefWidth="60.0" />
-                              <Label layoutX="270.0" layoutY="208.0" prefHeight="25.0" prefWidth="149.0" text="Data ostatniego właściciela" />
+                              <Label layoutX="243.0" layoutY="209.0" prefHeight="25.0" prefWidth="183.0" text="Data ostatniego właściciela" />
                               <Label layoutX="317.0" layoutY="8.0" prefHeight="25.0" prefWidth="51.0" text="Marka" />
                               <Label layoutX="317.0" layoutY="46.0" prefHeight="25.0" prefWidth="51.0" text="Model" />
                               <Label layoutX="317.0" layoutY="71.0" prefHeight="25.0" prefWidth="51.0" text="Silnik" />
-                              <Label layoutX="317.0" layoutY="104.0" prefHeight="25.0" prefWidth="81.0" text="Data produkcji" />
+                              <Label layoutX="287.0" layoutY="105.0" prefHeight="25.0" prefWidth="98.0" text="Data produkcji" />
                               <Label layoutX="317.0" layoutY="137.0" prefHeight="25.0" prefWidth="60.0" text="Cena" />
-                              <Label layoutX="317.0" layoutY="175.0" prefHeight="25.0" prefWidth="51.0" text="Przebieg" />
+                              <Label layoutX="305.0" layoutY="176.0" prefHeight="25.0" prefWidth="60.0" text="Przebieg" />
                               <Label layoutX="317.0" layoutY="245.0" prefHeight="25.0" prefWidth="51.0" text="Opis" />
                               <Label layoutX="306.0" layoutY="278.0" prefHeight="25.0" prefWidth="98.0" text="jest Nowy?" />
-                              <Label layoutX="270.0" layoutY="311.0" prefHeight="25.0" prefWidth="149.0" text="Dane ostatniego właściciela" />
+                              <Label layoutX="243.0" layoutY="312.0" prefHeight="25.0" prefWidth="183.0" text="Dane ostatniego właściciela" />
                               <ComboBox fx:id="comboMarki" layoutX="429.0" layoutY="8.0" prefWidth="150.0" />
+                              <Button fx:id="saveCar" layoutX="14.0" layoutY="278.0" mnemonicParsing="false" onAction="#saveCarInfo" prefHeight="26.0" prefWidth="98.0" text="Update this" />
+                              <Button layoutX="83.0" layoutY="311.0" mnemonicParsing="false" onAction="#addCar" prefHeight="26.0" prefWidth="81.0" text="Add new" />
+                              <ComboBox fx:id="comboNowy" layoutX="429.0" layoutY="278.0" prefWidth="150.0" />
+                              <Label layoutX="599.0" layoutY="142.0" text="PLN" />
+                              <Label layoutX="599.0" layoutY="180.0" text="km" />
+                              <Button layoutX="132.0" layoutY="278.0" mnemonicParsing="false" onAction="#deleteCar" prefHeight="26.0" prefWidth="90.0" text="Delete this" />
                            </children>
                         </AnchorPane>
                     </items>
                   </SplitPane>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TableView fx:id="tableView" layoutY="7.0" prefHeight="321.0" prefWidth="900.0" />
+               </children></AnchorPane>
         </items>
       </SplitPane>
    </children>

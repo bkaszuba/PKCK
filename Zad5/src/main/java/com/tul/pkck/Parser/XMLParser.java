@@ -29,6 +29,16 @@ public class XMLParser {
         return sw.toString();
     }
 
+    public void saveToXML(String path) throws JAXBException {
+        JAXBContext jc = JAXBContext.newInstance(Salon.class);
+        StringWriter sw = new StringWriter();
+        Marshaller marshaller = jc.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+        File xml = new File(path);
+        marshaller.marshal(salon, xml);
+    }
+
     private String getPath(String path) {
         return path.isEmpty() ? XML_PATH : path;
     }

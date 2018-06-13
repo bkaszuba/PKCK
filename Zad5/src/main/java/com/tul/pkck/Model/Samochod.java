@@ -24,6 +24,12 @@ public class Samochod {
     private String opis;
     private String jestNowy;
 
+    public Samochod() {
+        this.cena = new Cena();
+        this.przebieg = new Przebieg();
+        this.daneWłaściciela = new DaneWłaściciela();
+    }
+
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class DaneWłaściciela {
         @XmlAttribute
