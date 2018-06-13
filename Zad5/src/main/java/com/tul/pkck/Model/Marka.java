@@ -21,4 +21,6 @@ public class Marka {
     public String getMarka() {
         return marka;
     }
+
+
 }

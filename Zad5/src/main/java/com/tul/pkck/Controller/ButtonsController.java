@@ -1,5 +1,6 @@
 package com.tul.pkck.Controller;
 
+import com.tul.pkck.Model.Marka;
 import com.tul.pkck.Model.Salon;
 import com.tul.pkck.Model.Samochod;
 import com.tul.pkck.Parser.XMLParser;
@@ -9,10 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -27,6 +25,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class ButtonsController implements Initializable {
 
@@ -35,7 +34,32 @@ public class ButtonsController implements Initializable {
     TextArea xmlTextArea;
     @FXML
     ComboBox<String> comboBox;
-    ObservableList<String> ids;
+    @FXML
+    ComboBox<String> comboMarki;
+    @FXML
+    TextField model;
+    @FXML
+    TextField silnik;
+    @FXML
+    TextField dataProd;
+    @FXML
+    TextField cena;
+    @FXML
+    TextField przebieg;
+    @FXML
+    TextField dataOstat;
+    @FXML
+    TextField opis;
+    @FXML
+    TextField nowy;
+    @FXML
+    TextField imieWla;
+    @FXML
+    TextField nazWla;
+    @FXML
+    TextField nrWla;
+
+    Salon salon;
 
 
     @Override
@@ -44,11 +68,33 @@ public class ButtonsController implements Initializable {
     }
 
     public void loadXML(ActionEvent actionEvent) throws JAXBException {
-        xmlTextArea.setText(xmlParser.loadXML(""));
-        Salon salon = xmlParser.getSalon();
+        xmlParser.loadXML("");
+        salon = xmlParser.getSalon();
         comboBox.setItems(getObservableWtihIds(salon));
+        comboMarki.setItems(getObservableWtihMarki(salon));
     }
 
+    public void showCarInfo(ActionEvent actionEvent) {
+        Samochod samochod = salon.getSamochody().getSamochody().stream().filter(id -> id.getId().equals(comboBox.getValue())).findFirst().get();
+        comboMarki.setValue(samochod.getIdRef());
+        model.setText(samochod.getModel());
+        silnik.setText(String.valueOf(samochod.getSilnik()));
+        dataProd.setText(String.valueOf(samochod.getDataProdukcji()));
+        cena.setText(String.valueOf(samochod.getCena().getCena()));
+        przebieg.setText(String.valueOf(samochod.getPrzebieg().getPrzebieg()));
+        dataOstat.setText(samochod.getDataOstatniegoWłaściciela());
+        opis.setText(samochod.getOpis());
+        nowy.setText(samochod.getJestNowy());
+        imieWla.setText(samochod.getDaneWłaściciela().getImie());
+        nazWla.setText(samochod.getDaneWłaściciela().getNazwisko());
+        nrWla.setText(samochod.getDaneWłaściciela().getNrTelefonu());
+    }
+
+    public void saveCarInfo(ActionEvent actionEvent) {
+        Samochod samochod = salon.getSamochody().getSamochody().stream().filter(id -> id.getId().equals(comboBox.getValue())).findFirst().get();
+
+
+    }
 
 
     public void chooseFile(ActionEvent actionEvent) throws JAXBException, ParserConfigurationException {
@@ -60,7 +106,7 @@ public class ButtonsController implements Initializable {
         factory.setValidating(false);
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
-        if(selectedFile != null) {
+        if (selectedFile != null) {
             try {
                 builder.parse(new InputSource(selectedFile.getAbsolutePath()));
                 xmlTextArea.setText(xmlParser.loadXML(selectedFile.getAbsolutePath()));
@@ -79,12 +125,19 @@ public class ButtonsController implements Initializable {
     }
 
     private ObservableList<String> getObservableWtihIds(Salon salon) {
-        List<String> id = new ArrayList<>();
-        for (Samochod samochod: salon.getSamochody().getSamochody()) {
-            id.add(samochod.getId());
-        }
-        ids = FXCollections.observableArrayList(id);
-        return ids;
+        List<String> id =
+                salon.getSamochody().getSamochody().stream()
+                        .map(Samochod::getId)
+                        .collect(Collectors.toList());
+        return FXCollections.observableArrayList(id);
+    }
+
+    private ObservableList<String> getObservableWtihMarki(Salon salon) {
+        List<String> allMarki =
+                salon.getMarki().getMarki().stream()
+                        .map(Marka::getMarka)
+                        .collect(Collectors.toList());
+        return FXCollections.observableArrayList(allMarki);
     }
 
 }

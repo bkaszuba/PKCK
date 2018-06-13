@@ -4,11 +4,11 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tul.pkck.Controller.ButtonsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tul.pkck.Controller.ButtonsController">
    <children>
       <SplitPane dividerPositions="0.5" layoutY="-1.0" orientation="VERTICAL" prefHeight="700.0" prefWidth="900.0">
         <items>
@@ -25,8 +25,29 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="236.0" prefWidth="262.0">
                            <children>
                               <Label layoutX="40.0" layoutY="20.0" prefHeight="26.0" prefWidth="98.0" text="ID samochodu" />
-                              <ComboBox fx:id="comboBox" layoutX="14.0" layoutY="46.0" prefWidth="150.0" promptText="Wybierz ID" />
-                              <TextArea layoutX="283.0" layoutY="59.0" prefHeight="200.0" prefWidth="200.0" />
+                              <ComboBox fx:id="comboBox" layoutX="14.0" layoutY="46.0" onAction="#showCarInfo" prefWidth="150.0" promptText="Wybierz ID" />
+                              <TextField fx:id="model" layoutX="428.0" layoutY="46.0" />
+                              <TextField fx:id="silnik" layoutX="428.0" layoutY="71.0" />
+                              <TextField fx:id="dataProd" layoutX="428.0" layoutY="104.0" />
+                              <TextField fx:id="cena" layoutX="428.0" layoutY="137.0" />
+                              <TextField fx:id="przebieg" layoutX="428.0" layoutY="175.0" />
+                              <TextField fx:id="dataOstat" layoutX="428.0" layoutY="208.0" />
+                              <TextField fx:id="opis" layoutX="428.0" layoutY="245.0" />
+                              <TextField fx:id="nowy" layoutX="428.0" layoutY="278.0" />
+                              <TextField fx:id="imieWla" layoutX="428.0" layoutY="311.0" prefHeight="25.0" prefWidth="81.0" />
+                              <TextField fx:id="nazWla" layoutX="523.0" layoutY="311.0" prefHeight="25.0" prefWidth="73.0" />
+                              <TextField fx:id="nrWla" layoutX="605.0" layoutY="311.0" prefHeight="25.0" prefWidth="60.0" />
+                              <Label layoutX="270.0" layoutY="208.0" prefHeight="25.0" prefWidth="149.0" text="Data ostatniego właściciela" />
+                              <Label layoutX="317.0" layoutY="8.0" prefHeight="25.0" prefWidth="51.0" text="Marka" />
+                              <Label layoutX="317.0" layoutY="46.0" prefHeight="25.0" prefWidth="51.0" text="Model" />
+                              <Label layoutX="317.0" layoutY="71.0" prefHeight="25.0" prefWidth="51.0" text="Silnik" />
+                              <Label layoutX="317.0" layoutY="104.0" prefHeight="25.0" prefWidth="81.0" text="Data produkcji" />
+                              <Label layoutX="317.0" layoutY="137.0" prefHeight="25.0" prefWidth="60.0" text="Cena" />
+                              <Label layoutX="317.0" layoutY="175.0" prefHeight="25.0" prefWidth="51.0" text="Przebieg" />
+                              <Label layoutX="317.0" layoutY="245.0" prefHeight="25.0" prefWidth="51.0" text="Opis" />
+                              <Label layoutX="306.0" layoutY="278.0" prefHeight="25.0" prefWidth="98.0" text="jest Nowy?" />
+                              <Label layoutX="270.0" layoutY="311.0" prefHeight="25.0" prefWidth="149.0" text="Dane ostatniego właściciela" />
+                              <ComboBox fx:id="comboMarki" layoutX="429.0" layoutY="8.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
                     </items>

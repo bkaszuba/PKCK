@@ -1,11 +1,9 @@
 package com.tul.pkck.View;
 
-import com.tul.pkck.Model.Salon;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBException;
 
