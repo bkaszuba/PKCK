@@ -3,6 +3,7 @@ package com.tul.pkck.Controller;
 import com.tul.pkck.Model.Marka;
 import com.tul.pkck.Model.Salon;
 import com.tul.pkck.Model.Samochod;
+import com.tul.pkck.Parser.TXTParser;
 import com.tul.pkck.Parser.XMLParser;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -20,6 +21,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -109,6 +111,29 @@ public class ButtonsController implements Initializable {
             alert.showAndWait();
         }
 
+    }
+
+    public void saveToTXT(ActionEvent actionEvent) {
+        TXTParser txtParser = new TXTParser();
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if(selectedFile != null) {
+            try {
+                txtParser.saveToFile(selectedFile.getAbsolutePath(), this.salon);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Przekonwertowano pomyślnie", ButtonType.OK);
+                alert.showAndWait();
+            } catch (FileNotFoundException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Nie znaleziono pliku", ButtonType.OK);
+                alert.showAndWait();
+                e.printStackTrace();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Nie wybrano pliku", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     public void showCarInfo(ActionEvent actionEvent) {

@@ -1,0 +1,41 @@
+Dostępne marki
+===========================================================================================================================================================================================
+Nissan
+Audi
+BMW
+Renault
+Seat
+Honda
+Volkswagen
+===========================================================================================================================================================================================
+ID              Model           Pojemność silnika    Cena            Data produkcji  Data ostat wła  Imię ostat wła            Nazwisko ostat wła        Nr ostat wła              Czy nowy?                
+===========================================================================================================================================================================================
+NM1             Nissan          1.4                  7000PLN         2002            2014-09-23      Jan                       Kowalski                  664213532                 Nie                      
+VP1             Volkswagen      2.0                  17399PLN        2004            2010-12-27      Piotr                     Janicki                   622135332                 Nie                      
+SI1             Seat            1.4                  3499PLN         1997            2009-03-11      Kamil                     Jakonek                   731235321                 Nie                      
+RM1             Renault         1.8                  14999PLN        2008            2015-04-09      Andrzej                   Troczyński                532643873                 Nie                      
+HC1             Honda           2.0                  6599PLN         2000            2002-11-14      Arkadiusz                 Gazonek                   621423789                 Nie                      
+RL1             Renault         2.0                  32199PLN        2012            2014-03-17      Paweł                     Ważny                     689321654                 Nie                      
+BM1             BMW             2.5                  99000PLN        2015            2017-01-03      Kamila                    Wawrzyniak                652374214                 Nie                      
+BX1             BMW             3.0                  129999PLN       2016            2017-08-17      Tobiasz                   Nowak                     689213443                 Nie                      
+BX2             BMW             3.5                  78999PLN        2014            2015-09-09      Bartek                    Gnowiak                   621879811                 Nie                      
+AA1             Audi            1.8                  32000PLN        2012            2013-01-01      Julia                     Zamojska                  554211773                 Nie                      
+VG1             Volkswagen      2.0                  21999PLN        2007            2014-09-23      Robert                    Hanzak                    587213532                 Nie                      
+AA2             Audi            2.0                  52000PLN        2014            2015-06-28      Paulina                   Klista                    542879543                 Nie                      
+AA3             Audi            3.0                  83000PLN        2015            2016-12-11      Olga                      Drozd                     678998435                 Nie                      
+AR1             Audi            3.5                  123000PLN       2017            2018-02-12      Konrad                    Zając                     653778991                 Nie                      
+RM2             Renault         2.0                  32999PLN        2010            2013-11-09      Magda                     Poranek                   542314667                 Nie                      
+VU1             Volkswagen      1.0                  23099PLN        2010            2011-11-11      Janusz                    Cyranek                   552311678                 Nie                      
+SL1             Seat            2.0                  64000PLN        2010            2012-11-27      Ewa                       Klon                      542768321                 Nie                      
+NJ1             Nissan          2.5                  132999PLN       2017            2018-02-23      Genowefa                  Staropolska               586666782                 Nie                      
+HJ1             Honda           2.0                  35199PLN        2008            2013-03-14      Łukasz                    Prawilski                 677432884                 Nie                      
+BE1             BMW             2.0                  12999PLN        1998            2016-11-02      Filip                     Jutrzenka                 553765221                 Nie                      
+NQ1             Nissan          2.0                  110099PLN       2017            2018-03-01      Lolita                    Andrzejak                 631783546                 Nie                      
+
+
+
+
+Made By
+======================================
+Michał          Madej           203933              
+Bartłomiej      Kaszuba         203900              
