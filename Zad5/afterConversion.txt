@@ -7,10 +7,11 @@ Renault
 Seat
 Honda
 Volkswagen
+Prosze
 ===========================================================================================================================================================================================
 ID              Model           Pojemność silnika    Cena            Data produkcji  Data ostat wła  Imię ostat wła            Nazwisko ostat wła        Nr ostat wła              Czy nowy?                
 ===========================================================================================================================================================================================
-NM1             Nissan          1.4                  7000PLN         2002            2014-09-23      Jan                       Kowalski                  664213532                 Nie                      
+NM1             Nissan          1.5                  7000PLN         2002            2014-09-23      Jan                       Kowalski                  664213532                 Nie                      
 VP1             Volkswagen      2.0                  17399PLN        2004            2010-12-27      Piotr                     Janicki                   622135332                 Nie                      
 SI1             Seat            1.4                  3499PLN         1997            2009-03-11      Kamil                     Jakonek                   731235321                 Nie                      
 RM1             Renault         1.8                  14999PLN        2008            2015-04-09      Andrzej                   Troczyński                532643873                 Nie                      
@@ -31,6 +32,7 @@ NJ1             Nissan          2.5                  132999PLN       2017       
 HJ1             Honda           2.0                  35199PLN        2008            2013-03-14      Łukasz                    Prawilski                 677432884                 Nie                      
 BE1             BMW             2.0                  12999PLN        1998            2016-11-02      Filip                     Jutrzenka                 553765221                 Nie                      
 NQ1             Nissan          2.0                  110099PLN       2017            2018-03-01      Lolita                    Andrzejak                 631783546                 Nie                      
+PD1             Prosze          1.5                  7000PLN         2002            2014-09-23      Jan                       Kowalski                  664213532                 Nie                      
 
 
 

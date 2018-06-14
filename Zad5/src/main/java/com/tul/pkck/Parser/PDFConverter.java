@@ -4,6 +4,8 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.tul.pkck.Model.Marka;
+import com.tul.pkck.Model.Marki;
 import com.tul.pkck.Model.Salon;
 import com.tul.pkck.Model.Samochod;
 
@@ -19,7 +21,7 @@ public class PDFConverter implements Converter {
     @Override
     public void convert(String path, Salon salon) {
         this.salon = salon;
-        Document document = new Document();
+        Document document = new Document(PageSize.A4, 0f, 0f, 20f, 0f);
         try {
             try {
                 PdfWriter.getInstance(document, new FileOutputStream(path));
@@ -30,11 +32,30 @@ public class PDFConverter implements Converter {
             e.printStackTrace();
         }
         document.open();
-        PdfPTable table = new PdfPTable(6);
-        addTableHeader(table);
-        addRows(table);
+        Paragraph paragraph1 = new Paragraph("Wszystkie dostepne marki");
+        paragraph1.setSpacingAfter(8f);
+        paragraph1.setAlignment(Element.ALIGN_CENTER);
+        PdfPTable marki = new PdfPTable(2);
+        addMarkiHeaders(marki);
+        addRowsMarki(marki);
         try {
-            document.add(table);
+            document.add(paragraph1);
+            document.add(marki);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+
+        Paragraph paragraph2 = new Paragraph("Wszystkie dostepne samochody");
+        paragraph2.setSpacingBefore(50f);
+        paragraph2.setSpacingAfter(8f);
+        paragraph2.setAlignment(Element.ALIGN_CENTER);
+
+        PdfPTable samochody = new PdfPTable(6);
+        addTableHeader(samochody);
+        addRows(samochody);
+        try {
+            document.add(paragraph2);
+            document.add(samochody);
         } catch (DocumentException e) {
             e.printStackTrace();
         }
@@ -61,5 +82,33 @@ public class PDFConverter implements Converter {
                     header.setPhrase(new Phrase(columnTitle));
                     table.addCell(header);
                 });
+    }
+
+    private void addMarkiHeaders(PdfPTable table) {
+        Stream.of("Marka", "Ilosc aut")
+                .forEach(columnTitle -> {
+                    PdfPCell header = new PdfPCell();
+                    header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    header.setBorderWidth(2);
+                    header.setPhrase(new Phrase(columnTitle));
+                    table.addCell(header);
+                });
+    }
+
+    private void addRowsMarki(PdfPTable table) {
+        for (Marka marka : salon.getMarki().getMarki()) {
+            table.addCell(marka.getMarka());
+            table.addCell(countMarka(marka));
+        }
+    }
+
+    private String countMarka(Marka marka) {
+        int count = 0;
+        for (Samochod samochod: salon.getSamochody().getSamochody()) {
+            if(samochod.getIdRef().equals(marka.getMarka())) {
+                count++;
+            }
+        }
+        return valueOf(count);
     }
 }

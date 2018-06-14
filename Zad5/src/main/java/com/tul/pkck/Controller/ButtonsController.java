@@ -1,6 +1,5 @@
 package com.tul.pkck.Controller;
 
-import com.itextpdf.text.DocumentException;
 import com.tul.pkck.Model.Marka;
 import com.tul.pkck.Model.Salon;
 import com.tul.pkck.Model.Samochod;
@@ -24,7 +23,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -79,7 +77,7 @@ public class ButtonsController implements Initializable {
         xmlParser = new XMLParser();
     }
 
-    public void loadXML(ActionEvent actionEvent){
+    public void loadXML(ActionEvent actionEvent) {
         try {
             xmlParser.loadXML("");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Wczytano pomyślnie", ButtonType.OK);
@@ -100,7 +98,7 @@ public class ButtonsController implements Initializable {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml");
         fileChooser.getExtensionFilters().add(extFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
-        if(selectedFile != null) {
+        if (selectedFile != null) {
             try {
                 xmlParser.saveToXML(selectedFile.getAbsolutePath());
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Zapisano pomyślnie", ButtonType.OK);
@@ -122,12 +120,11 @@ public class ButtonsController implements Initializable {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
-        if(selectedFile != null) {
+        if (selectedFile != null) {
             txtConverter.convert(selectedFile.getAbsolutePath(), this.salon);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Przekonwertowano pomyślnie", ButtonType.OK);
             alert.showAndWait();
-        }
-        else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Nie wybrano pliku", ButtonType.OK);
             alert.showAndWait();
         }
@@ -139,7 +136,7 @@ public class ButtonsController implements Initializable {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
         fileChooser.getExtensionFilters().add(extFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
-        if(selectedFile != null) {
+        if (selectedFile != null) {
             pdfConverter.convert(selectedFile.getAbsolutePath(), salon);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Przekonwertowano pomyślnie", ButtonType.OK);
             alert.showAndWait();
@@ -167,63 +164,53 @@ public class ButtonsController implements Initializable {
 
     public void saveCarInfo(ActionEvent actionEvent) {
         Samochod samochod = salon.getSamochody().getSamochody().stream().filter(id -> id.getId().equals(comboBox.getValue())).findFirst().get();
-        if(isValidDate(dataOstat.getText())) {
-            if(FieldUtils.checkSilnik(silnik.getText())) {
-                samochod.setIdRef(comboMarki.getValue());
-                samochod.setModel(model.getText());
-                samochod.setSilnik(Double.parseDouble(silnik.getText()));
-                samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
-                samochod.getCena().setCena(cena.getText());
-                samochod.getPrzebieg().setPrzebieg(przebieg.getText());
-                samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
-                samochod.setOpis(opis.getText());
-                samochod.setJestNowy(comboNowy.getValue());
-                samochod.getDaneWłaściciela().setImie(imieWla.getText());
-                samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
-                samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
-                tableView.refresh();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format silnika ([0-9].[0-9])", ButtonType.OK);
-                alert.showAndWait();
-            }
-
+        if (checkAllFields()) {
+            samochod.setIdRef(comboMarki.getValue());
+            samochod.setModel(model.getText());
+            samochod.setSilnik(Double.parseDouble(silnik.getText()));
+            samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
+            samochod.getCena().setCena(cena.getText());
+            samochod.getPrzebieg().setPrzebieg(przebieg.getText());
+            samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
+            samochod.setOpis(opis.getText());
+            samochod.setJestNowy(comboNowy.getValue());
+            samochod.getDaneWłaściciela().setImie(imieWla.getText());
+            samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
+            samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
+            tableView.refresh();
         }
     }
 
     public void addCar(ActionEvent actionEvent) {
         Samochod samochod = new Samochod();
-        if(isValidDate(dataOstat.getText())) {
-            if(FieldUtils.checkSilnik(silnik.getText())) {
-                samochod.setIdRef(comboMarki.getValue());
-                samochod.setModel(model.getText());
-                samochod.setSilnik(Double.parseDouble(silnik.getText()));
-                samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
-                samochod.getCena().setCena(cena.getText());
-                samochod.getCena().setWaluta("PLN");
-                samochod.getPrzebieg().setPrzebieg(przebieg.getText());
-                samochod.getPrzebieg().setJednostka("km");
-                samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
-                samochod.setOpis(opis.getText());
-                samochod.setJestNowy(comboNowy.getValue());
-                samochod.getDaneWłaściciela().setImie(imieWla.getText());
-                samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
-                samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
-                samochod.setId(generateCarId(samochod));
-                salon.getSamochody().getSamochody().add(samochod);
-                tableView.getItems().clear();
-                fillTableView();
-                comboBox.setItems(getObservableWtihIds(salon));
-            } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format silnika ([0-9].[0-9])", ButtonType.OK);
-                alert.showAndWait();
-            }
+        if(checkAllFields()) {
+            samochod.setIdRef(comboMarki.getValue());
+            samochod.setModel(model.getText());
+            samochod.setSilnik(Double.parseDouble(silnik.getText()));
+            samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
+            samochod.getCena().setCena(cena.getText());
+            samochod.getCena().setWaluta("PLN");
+            samochod.getPrzebieg().setPrzebieg(przebieg.getText());
+            samochod.getPrzebieg().setJednostka("km");
+            samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
+            samochod.setOpis(opis.getText());
+            samochod.setJestNowy(comboNowy.getValue());
+            samochod.getDaneWłaściciela().setImie(imieWla.getText());
+            samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
+            samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
+            samochod.setId(generateCarId(samochod));
+            salon.getSamochody().getSamochody().add(samochod);
+            tableView.getItems().clear();
+            fillTableView();
+            comboBox.setItems(getObservableWtihIds(salon));
         }
+
     }
 
     public void deleteCar(ActionEvent actionEvent) {
         int index = 0;
         for (int i = 0; i < salon.getSamochody().getSamochody().size(); i++) {
-            if(salon.getSamochody().getSamochody().get(i).getId().equals(comboBox.getValue())) {
+            if (salon.getSamochody().getSamochody().get(i).getId().equals(comboBox.getValue())) {
                 index = i;
             }
         }
@@ -249,22 +236,27 @@ public class ButtonsController implements Initializable {
     public void addMarka(ActionEvent actionEvent) {
         String nazwa = nowaMarka.getText();
         Marka marka = new Marka();
-        if(checkIfMarkaExists(nazwa)) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Ta marka istnieje", ButtonType.OK);
-            alert.showAndWait();
+        if(FieldUtils.checkOnlyLetterWithFirstCapital(nazwa)) {
+            if (checkIfMarkaExists(nazwa)) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Ta marka istnieje", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                marka.setIdAuta(nazwa);
+                marka.setMarka(nazwa);
+                salon.getMarki().getMarki().add(marka);
+                comboMarki.setItems(getObservableWtihMarki(salon));
+            }
         } else {
-            marka.setIdAuta(nazwa);
-            marka.setMarka(nazwa);
-            salon.getMarki().getMarki().add(marka);
-            comboMarki.setItems(getObservableWtihMarki(salon));
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Marka tylko litery, pierwsza wielkimi", ButtonType.OK);
+            alert.showAndWait();
         }
 
     }
 
     private boolean checkIfMarkaExists(String nazwa) {
         Boolean exists = false;
-        for (Marka marka: salon.getMarki().getMarki()) {
-            if(marka.getIdAuta().equals(nazwa)) {
+        for (Marka marka : salon.getMarki().getMarki()) {
+            if (marka.getIdAuta().equals(nazwa)) {
                 exists = true;
             }
         }
@@ -365,18 +357,17 @@ public class ButtonsController implements Initializable {
         int index = 1;
         idBuilder.append(index);
         do {
-            idBuilder.deleteCharAt(idBuilder.length()-1);
+            idBuilder.deleteCharAt(idBuilder.length() - 1);
             idBuilder.append(index);
             index++;
-        } while(checkIfIdExists(idBuilder.toString()));
+        } while (checkIfIdExists(idBuilder.toString()));
         return idBuilder.toString();
     }
 
     private boolean checkIfIdExists(String id) {
-        //return salon.getSamochody().getSamochody().stream().anyMatch(t -> t.getId().equals(id));
         Boolean idExists = false;
-        for (Samochod samochod: salon.getSamochody().getSamochody()) {
-            if(samochod.getId().equals(id))
+        for (Samochod samochod : salon.getSamochody().getSamochody()) {
+            if (samochod.getId().equals(id))
                 idExists = true;
         }
         return idExists;
@@ -388,7 +379,57 @@ public class ButtonsController implements Initializable {
             df.parse(dateString);
             return true;
         } catch (ParseException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format daty (YYYY-MM-DD to prawidłowy)", ButtonType.OK);
+            return false;
+        }
+    }
+
+    public boolean checkAllFields() {
+        if (FieldUtils.checkSilnik(silnik.getText())) {
+            if (FieldUtils.checkRocznik(dataProd.getText())) {
+                if (FieldUtils.checkOnlyDigits(cena.getText())) {
+                    if (FieldUtils.checkOnlyDigits(przebieg.getText())) {
+                        if (isValidDate(dataOstat.getText())) {
+                            if (FieldUtils.checkOnlyLetterWithFirstCapital(imieWla.getText())) {
+                                if (FieldUtils.checkOnlyLetterWithFirstCapital(nazWla.getText())) {
+                                    if (FieldUtils.checkNumer(nrWla.getText())) {
+                                        return true;
+                                    } else {
+                                        Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format, numer telefonu 9 cyfr", ButtonType.OK);
+                                        alert.showAndWait();
+                                        return false;
+                                    }
+                                } else {
+                                    Alert alert = new Alert(Alert.AlertType.WARNING, "Nazwisko tylko litery, pierwsza wielkimi", ButtonType.OK);
+                                    alert.showAndWait();
+                                    return false;
+                                }
+                            } else {
+                                Alert alert = new Alert(Alert.AlertType.WARNING, "Imie tylko litery, pierwsza wielkimi", ButtonType.OK);
+                                alert.showAndWait();
+                                return false;
+                            }
+                        } else {
+                            Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format daty (YYYY-MM-DD)", ButtonType.OK);
+                            alert.showAndWait();
+                            return false;
+                        }
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format, przebieg tylko cyfry", ButtonType.OK);
+                        alert.showAndWait();
+                        return false;
+                    }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format, cena tylko cyfry", ButtonType.OK);
+                    alert.showAndWait();
+                    return false;
+                }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format, rok produkcji to 4 cyfry", ButtonType.OK);
+                alert.showAndWait();
+                return false;
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format pojemności silnika (np. 1.9)", ButtonType.OK);
             alert.showAndWait();
             return false;
         }

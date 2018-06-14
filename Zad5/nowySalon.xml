@@ -23,12 +23,12 @@
         <marka idAuta="Seat">Seat</marka>
         <marka idAuta="Honda">Honda</marka>
         <marka idAuta="Volkswagen">Volkswagen</marka>
-        <marka idAuta="Porshe">Porshe</marka>
+        <marka idAuta="Prosze">Prosze</marka>
     </marki>
     <samochody>
         <samochód id="NM1" idref="Nissan">
             <model>Micra</model>
-            <silnik>1.4</silnik>
+            <silnik>1.5</silnik>
             <cena waluta="PLN">7000</cena>
             <dataProdukcji>2002</dataProdukcji>
             <przebieg jednostka="km">98000</przebieg>
@@ -257,16 +257,16 @@
             <opis>Samochód terenowy, który nigdy nie zawodzi </opis>
             <jestNowy>Nie</jestNowy>
         </samochód>
-        <samochód id="PP1" idref="Porshe">
-            <model>Panamera</model>
-            <silnik>2.5</silnik>
-            <cena waluta="PLN">52000</cena>
-            <dataProdukcji>2015</dataProdukcji>
-            <przebieg jednostka="km">20434</przebieg>
-            <dataOstatniegoWłaściciela>2014-03-12</dataOstatniegoWłaściciela>
-            <daneOstatniegoWłaściciela imie="Bartek" nazwisko="Kaszyba" nrTelefonu="477123123"/>
-            <opis>Szybkie</opis>
-            <jestNowy>Tak</jestNowy>
+        <samochód id="PD1" idref="Prosze">
+            <model>Daj5</model>
+            <silnik>1.5</silnik>
+            <cena waluta="PLN">7000</cena>
+            <dataProdukcji>2002</dataProdukcji>
+            <przebieg jednostka="km">98000</przebieg>
+            <dataOstatniegoWłaściciela>2014-09-23</dataOstatniegoWłaściciela>
+            <daneOstatniegoWłaściciela imie="Jan" nazwisko="Kowalski" nrTelefonu="664213532"/>
+            <opis>Lekki samochód miejski ze spalaniem mNiejszym 6l/100km</opis>
+            <jestNowy>Nie</jestNowy>
         </samochód>
     </samochody>
 </salon>
