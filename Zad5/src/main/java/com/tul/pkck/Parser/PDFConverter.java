@@ -13,14 +13,19 @@ import java.util.stream.Stream;
 
 import static java.lang.String.*;
 
-public class PDFParser {
+public class PDFConverter implements Converter {
     Salon salon;
 
-    public void saveToPDF(String path, Salon salon) throws DocumentException {
+    @Override
+    public void convert(String path, Salon salon) {
         this.salon = salon;
         Document document = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream(path));
+            try {
+                PdfWriter.getInstance(document, new FileOutputStream(path));
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -28,7 +33,11 @@ public class PDFParser {
         PdfPTable table = new PdfPTable(6);
         addTableHeader(table);
         addRows(table);
-        document.add(table);
+        try {
+            document.add(table);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
         document.close();
     }
 

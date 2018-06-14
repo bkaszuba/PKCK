@@ -8,10 +8,15 @@ import com.tul.pkck.Model.Samochod;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class TXTParser {
+public class TXTConverter implements Converter{
 
-    public void saveToFile(String path, Salon salon) throws FileNotFoundException {
-        PrintWriter out = new PrintWriter(path);
+    public void convert(String path, Salon salon) {
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(path);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         StringBuilder sB = new StringBuilder();
         String formatStr = "%-15s %-15s %-20s %-15s %-15s %-15s %-25s %-25s %-25s %-25s%n";
         out.write("Dostępne marki" + "\n");

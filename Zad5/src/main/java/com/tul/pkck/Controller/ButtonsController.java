@@ -4,9 +4,10 @@ import com.itextpdf.text.DocumentException;
 import com.tul.pkck.Model.Marka;
 import com.tul.pkck.Model.Salon;
 import com.tul.pkck.Model.Samochod;
-import com.tul.pkck.Parser.PDFParser;
-import com.tul.pkck.Parser.TXTParser;
+import com.tul.pkck.Parser.PDFConverter;
+import com.tul.pkck.Parser.TXTConverter;
 import com.tul.pkck.Parser.XMLParser;
+import com.tul.pkck.Utils.FieldUtils;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -116,21 +117,15 @@ public class ButtonsController implements Initializable {
     }
 
     public void saveToTXT(ActionEvent actionEvent) {
-        TXTParser txtParser = new TXTParser();
+        TXTConverter txtConverter = new TXTConverter();
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
         if(selectedFile != null) {
-            try {
-                txtParser.saveToFile(selectedFile.getAbsolutePath(), this.salon);
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Przekonwertowano pomyślnie", ButtonType.OK);
-                alert.showAndWait();
-            } catch (FileNotFoundException e) {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Nie znaleziono pliku", ButtonType.OK);
-                alert.showAndWait();
-                e.printStackTrace();
-            }
+            txtConverter.convert(selectedFile.getAbsolutePath(), this.salon);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Przekonwertowano pomyślnie", ButtonType.OK);
+            alert.showAndWait();
         }
         else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Nie wybrano pliku", ButtonType.OK);
@@ -139,21 +134,15 @@ public class ButtonsController implements Initializable {
     }
 
     public void saveToPDF(ActionEvent actionEvent) {
-        PDFParser pdfParser = new PDFParser();
+        PDFConverter pdfConverter = new PDFConverter();
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
         fileChooser.getExtensionFilters().add(extFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
         if(selectedFile != null) {
-            try {
-                pdfParser.saveToPDF(selectedFile.getAbsolutePath(), salon);
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Przekonwertowano pomyślnie", ButtonType.OK);
-                alert.showAndWait();
-            } catch (DocumentException e) {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Wystąpił problem podczas konwertowania", ButtonType.OK);
-                alert.showAndWait();
-                e.printStackTrace();
-            }
+            pdfConverter.convert(selectedFile.getAbsolutePath(), salon);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Przekonwertowano pomyślnie", ButtonType.OK);
+            alert.showAndWait();
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Nie wybrano pliku", ButtonType.OK);
             alert.showAndWait();
@@ -179,44 +168,55 @@ public class ButtonsController implements Initializable {
     public void saveCarInfo(ActionEvent actionEvent) {
         Samochod samochod = salon.getSamochody().getSamochody().stream().filter(id -> id.getId().equals(comboBox.getValue())).findFirst().get();
         if(isValidDate(dataOstat.getText())) {
-            samochod.setIdRef(comboMarki.getValue());
-            samochod.setModel(model.getText());
-            samochod.setSilnik(Double.parseDouble(silnik.getText()));
-            samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
-            samochod.getCena().setCena(cena.getText());
-            samochod.getPrzebieg().setPrzebieg(przebieg.getText());
-            samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
-            samochod.setOpis(opis.getText());
-            samochod.setJestNowy(comboNowy.getValue());
-            samochod.getDaneWłaściciela().setImie(imieWla.getText());
-            samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
-            samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
-            tableView.refresh();
+            if(FieldUtils.checkSilnik(silnik.getText())) {
+                samochod.setIdRef(comboMarki.getValue());
+                samochod.setModel(model.getText());
+                samochod.setSilnik(Double.parseDouble(silnik.getText()));
+                samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
+                samochod.getCena().setCena(cena.getText());
+                samochod.getPrzebieg().setPrzebieg(przebieg.getText());
+                samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
+                samochod.setOpis(opis.getText());
+                samochod.setJestNowy(comboNowy.getValue());
+                samochod.getDaneWłaściciela().setImie(imieWla.getText());
+                samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
+                samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
+                tableView.refresh();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format silnika ([0-9].[0-9])", ButtonType.OK);
+                alert.showAndWait();
+            }
+
         }
     }
 
     public void addCar(ActionEvent actionEvent) {
         Samochod samochod = new Samochod();
         if(isValidDate(dataOstat.getText())) {
-            samochod.setIdRef(comboMarki.getValue());
-            samochod.setModel(model.getText());
-            samochod.setSilnik(Double.parseDouble(silnik.getText()));
-            samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
-            samochod.getCena().setCena(cena.getText());
-            samochod.getCena().setWaluta("PLN");
-            samochod.getPrzebieg().setPrzebieg(przebieg.getText());
-            samochod.getPrzebieg().setJednostka("km");
-            samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
-            samochod.setOpis(opis.getText());
-            samochod.setJestNowy(comboNowy.getValue());
-            samochod.getDaneWłaściciela().setImie(imieWla.getText());
-            samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
-            samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
-            samochod.setId(generateCarId(samochod));
-            salon.getSamochody().getSamochody().add(samochod);
-            tableView.getItems().clear();
-            fillTableView();
-            comboBox.setItems(getObservableWtihIds(salon));
+            if(FieldUtils.checkSilnik(silnik.getText())) {
+                samochod.setIdRef(comboMarki.getValue());
+                samochod.setModel(model.getText());
+                samochod.setSilnik(Double.parseDouble(silnik.getText()));
+                samochod.setDataProdukcji(Integer.parseInt(dataProd.getText()));
+                samochod.getCena().setCena(cena.getText());
+                samochod.getCena().setWaluta("PLN");
+                samochod.getPrzebieg().setPrzebieg(przebieg.getText());
+                samochod.getPrzebieg().setJednostka("km");
+                samochod.setDataOstatniegoWłaściciela(dataOstat.getText());
+                samochod.setOpis(opis.getText());
+                samochod.setJestNowy(comboNowy.getValue());
+                samochod.getDaneWłaściciela().setImie(imieWla.getText());
+                samochod.getDaneWłaściciela().setNazwisko(nazWla.getText());
+                samochod.getDaneWłaściciela().setNrTelefonu(nrWla.getText());
+                samochod.setId(generateCarId(samochod));
+                salon.getSamochody().getSamochody().add(samochod);
+                tableView.getItems().clear();
+                fillTableView();
+                comboBox.setItems(getObservableWtihIds(salon));
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Zły format silnika ([0-9].[0-9])", ButtonType.OK);
+                alert.showAndWait();
+            }
         }
     }
 
